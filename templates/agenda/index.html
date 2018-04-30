@@ -1,0 +1,48 @@
+{#
+ # Agenda index template
+ # -------------------
+ #
+ # This template is loaded whenever http://example.com/projects is
+ # requested.
+ #
+ #}
+
+{% extends "_layouts/site" %}
+
+{% set title = "Agenda" %}
+
+{% set entries = craft.entries().section('agenda').all() %}
+
+{% block main %}
+
+    <section class="l-section">
+        <div class="o-wrapper">
+            <header>
+                <div class="o-layout">
+                    <header>
+                        <h1 class="c-heading o-col-5@xs">{{ title }}</h1>
+                    </header>
+                </div>
+            </header>
+
+            <div class="l-feed">
+                <div class="o-layout">
+                    <div class="o-col-12@xs">
+                            <ul class="l-feed--list o-list">
+                            {% for entry in entries %}
+                                <div class="o-layout">
+                                    <div class="o-col-12@xs">
+                                        <li class="l-feed--list__item">
+                                            {% include "agenda/_components/list-item"  %}
+                                        </li>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+{% endblock %}

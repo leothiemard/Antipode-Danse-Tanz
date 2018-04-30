@@ -1,0 +1,68 @@
+/*------------------------------------*\
+    BASE: ASSETS
+\*------------------------------------*/
+
+
+.o-asset {
+  img {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.o-asset--full-vh {
+  img {
+    height: 40vh;
+  }
+}
+
+.o-asset-container {
+  position: relative;
+
+  .o-asset__icon {
+    display: inline-block;
+    position: absolute;
+
+    right: $spacing-unit--xs;
+    bottom: $spacing-unit--xs;
+
+    color: $white;
+
+    text-shadow: 1px 1px 0 $dark-grey;
+    @include font-weight( regular );
+  }
+
+  .o-asset__icon--svg {
+    fill: $white;
+    height: $spacing-unit;
+    width: $spacing-unit;
+  }
+}
+
+.o-asset-legend {
+  color: $dark-grey;
+
+  text-align: left;
+  font-weight: 100;
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+
+  & > * {
+    display: inline;
+
+    font-size: $font-size--xs;
+    line-height: $line-height--xs;
+  }
+}
+
+.o-asset-legend--overlap {
+  display: inline-block;
+  position: absolute;
+
+  right: $spacing-unit--xs;
+  bottom: $spacing-unit--xs;
+
+  color: $white;
+
+  @include font-weight( regular );
+}

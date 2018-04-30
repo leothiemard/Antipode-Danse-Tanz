@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    LAYOUT: SINGLE
+\*------------------------------------*/
+
+
+.l-single--auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 100vh;
+
+  padding-top: $spacing-unit--xl;
+}

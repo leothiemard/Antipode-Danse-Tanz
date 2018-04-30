@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    LAYOUT: FOOTER
+\*------------------------------------*/
+
+
+.l-footer {
+  background-color: $white;
+  border-top: 4px solid $black;
+
+  padding: $spacing-unit--xxs 0;
+
+  @include font-weight( normal );
+
+  p {
+    font-size: $font-size--xs;
+    line-height: $line-height--xs;
+  }
+}
+
+.l-footer__copyright {
+
+}

@@ -1,0 +1,144 @@
+/*------------------------------------*\
+    LAYOUT: GRID
+\*------------------------------------*/
+
+
+// --
+// Wrapper width
+// --
+
+// Set the wrapper width, and override it for fixed navbars in media queries.
+@if $enable-grid-classes {
+
+  .o-wrapper {
+    @include make-wrapper();
+    @include make-wrapper-max-widths();
+    @include clearfix;
+  }
+
+}
+
+
+// --
+// Full-width wrapper
+// --
+
+// Utilizes the mixin meant for fixed width wrapper, but without any defined
+// width for full width layouts.
+@if $enable-grid-classes {
+
+  .o-wrapper--full {
+    @include make-wrapper();
+  }
+
+}
+
+
+// --
+// Full-viewport wrapper
+// --
+
+@if $enable-grid-classes {
+
+  // Full viewport-height with breakpoints
+  // Set the wrapper width, set the wrapper height as full viewport and override its width with media-queries.
+  .o-wrapper--full-vh {
+
+    @include make-wrapper();
+    @include make-wrapper-full-vh();
+    @include make-wrapper-max-widths();
+
+  }
+
+  // Full viewport-height and viewport-width without breakpoints
+  // Set the wrapper width, set the wrapper height as full viewport
+  .o-wrapper--full-viewport {
+    @include make-wrapper();
+    @include make-wrapper-full-vh();
+  }
+
+}
+
+// --
+// Custom sized wrapper
+// --
+
+// Utilizes the mixin meant for fixed width wrapper, but without any defined
+// width for full width layouts.
+@if $enable-grid-classes {
+
+  .o-wrapper--nav {
+    @include make-wrapper();
+    @include media-query( md ) {
+      @include make-wrapper-max-widths();
+      @include clearfix;
+    }
+  }
+
+}
+
+
+// --
+// Layouts
+// --
+
+// Layouts contain and clear the floats of your columns.
+@if $enable-grid-classes {
+
+  .o-layout {
+
+    @include make-layout();
+
+  }
+
+  .o-layout__item {
+    @extend .u-clearfix;
+    margin-bottom: $spacing-unit--xxl;
+
+    @include media-query( md ) {
+      margin-bottom: 0;
+    }
+
+    &:only-of-type {
+      margin-bottom: $spacing-unit--xxl;
+    }
+  }
+
+}
+
+@if $enable-flex {
+
+  .o-layout--flex {
+    @include make-layout-flex();
+  }
+  .o-layout--flex-end {
+    align-self: flex-end;
+  }
+  .o-layout--flex-start {
+    align-self: flex-start;
+  }
+}
+
+// --
+// CSS Grid
+// --
+
+@include media-query( lg ) {
+  .o-layout--grid {
+    display: inline-grid;
+    grid-template-columns: calc(50% - 12px) calc(50% - 12px);
+    grid-template-rows: auto;
+    grid-column-gap: 24px;
+  }
+}
+
+// --
+// Columns
+// --
+
+// Common styles for small and large grid columns.
+@if $enable-grid-classes {
+
+  @include make-grid-columns();
+
+}

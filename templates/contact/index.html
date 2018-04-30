@@ -1,0 +1,92 @@
+{#
+ # Contact index template
+ # -------------------
+ #
+ # This template is loaded whenever http://example.com/projects is
+ # requested.
+ #
+ #}
+
+{% extends "_layouts/site" %}
+
+{% set bodyClass = "t-contact" %}
+
+{% set title = "Contact" %}
+
+{% set entries = craft.entries.section('contact') %}
+
+{% block main %}
+
+    <section class="l-section">
+        <div class="o-wrapper">
+        	<div class="o-layout">
+        		<div class="o-col-12@xs o-col-8@sm">
+        			<div class="o-asset">
+	                    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCfwxFev0cgcTkx0eUEZ1Ubc6dqd0q8oZg"></script>
+	                    <div id="gmap"><div id="gmap_canvas"></div></div>
+	                    <script type="text/javascript">function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(46.794494,7.1534143000000086),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(46.794494,7.1534143000000086)});infowindow = new google.maps.InfoWindow({content:'<strong>Antipode Studio</strong><br>fonderie 8, fribourg<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+            		</div>
+                </div>
+        		<div class="o-col-12@xs o-col-4@sm">
+        			<address class="u-mt">
+						Antipode Studio<br>
+						fonderie 8
+					</address>
+					<hr class="u-separator">
+					<address>
+						Antipode Danse Tanz<br>
+						Place de la Gare 1 | CP 1014<br>
+						CH – 1701 Fribourg<br>
+						<a class="u-underline" href="mailto:info@antipodedansetanz.ch">info@antipodedansetanz.ch</a><br>
+					</address>
+        		</div>
+        	</div>
+        	<hr class="u-separator">
+        	<div class="o-layout">
+        		<div class="o-col-12@xs o-col-4@sm">
+        			<h2 class="c-category">Direction Artistique</h2>
+    				<h1 class="c-heading--sm">Nicole Morel</h1>
+    				<a class="u-underline" href="mailto:n.morel@antipodedansetanz.ch">n.morel@antipodedansetanz.ch</a>
+        		</div>
+        		<div class="o-col-12@xs o-col-4@sm">
+        			<h2 class="c-category">Direction administrative</h2>
+    				<h1 class="c-heading--sm">Juan Diaz</h1>
+    				<a class="u-underline" href="mailto:n.morel@antipodedansetanz.ch">j.diaz@antipodedansetanz.ch</a>
+        		</div>
+        		<div class="o-col-12@xs o-col-4@sm">
+        			<h2 class="c-category">Dramaturgie / Booking</h2>
+    				<h1 class="c-heading--sm">Ulrike Wörner</h1>
+    				<a class="u-underline" href="mailto:n.morel@antipodedansetanz.ch">u.worner@antipodedansetanz.ch</a>
+        		</div>
+    		</div>
+			<hr class="u-separator">
+    		<div class="o-layout u-mb--xl">
+        		<div class="o-col-12@xs o-col-6@sm">
+        			<h2 class="c-category u-mb--sm">Association</h2>
+					<ul class="o-list u-mb--sm">
+						<li class="o-list__item">Présidente</li>
+						<li class="o-list__item"><a class="u-underline" mailto="mailto:v.pochon@antipodedansetanz.ch">Valentine Pochon</a></li>
+						<li class="o-list__item">Trésorier</li>
+						<li class="o-list__item"><a class="u-underline" mailto="mailto:d.cagnazzoantipodedansetanz.ch">Danilo Cagnazzo</a></li>
+						<li class="o-list__item">Membre</li>
+						<li class="o-list__item"><a class="u-underline" mailto="mailto:m.georgiou@antipodedansetanz.ch">Mélanie Georgiou</a></li>
+					</ul>
+        		</div>
+
+        		<div class="o-col-12@xs o-col-6@sm">
+        			<h2 class="c-category u-mb--sm">Soutiens principaux</h2>
+    				<ul class="o-list u-mb--sm">
+						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Etat de Fribourg</a></li>
+						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Loterie Romande</a></li>
+						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Agglomération de Fribourg</a></li>
+						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Pro Helvetia</a></li>
+						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Fondation Ernst Göhner</a></li>
+						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Fondation Anne-Marie Schindler</a></li>
+						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Fondation Suisse des Artistes Interprètes SIS</a></li>
+					</ul>
+        		</div>
+    		</div>
+        </div>
+    </section>
+
+{% endblock %}

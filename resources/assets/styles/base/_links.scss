@@ -1,0 +1,13 @@
+/*------------------------------------*\
+    BASE: LINKS
+\*------------------------------------*/
+
+
+body:not(.u-is-mobile) a {
+  @include on-event() {}
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

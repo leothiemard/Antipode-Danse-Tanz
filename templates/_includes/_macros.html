@@ -1,0 +1,11 @@
+{#
+ # Macro
+ # -------------------
+ #
+ #
+ # {% import "_includes/_macros.twig" as macros %}
+ #
+ #}
+
+{% macro is_active(segment) %}{% if craft.app.request.segments|first == segment %}c-nav__link--active{% endif %}{% endmacro %}
+

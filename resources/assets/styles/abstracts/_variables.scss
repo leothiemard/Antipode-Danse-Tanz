@@ -1,0 +1,342 @@
+/*------------------------------------*\
+    ABSTRACTS: VARIABLES
+\*------------------------------------*/
+
+
+/**
+ * Variables
+ * @section
+ */
+
+
+/**
+ * Font Stacks descr
+ *
+ * @section Font Stacks
+ * @sectionof Variables
+ *
+ * @example
+ *
+ */
+
+// Subset font family
+// @type List
+$subset-font-stack: (
+  'DinPro',
+  'Helvetica Neue',
+  'Helvetica',
+  'Arial',
+  sans-serif
+) !default;
+
+// Web font family
+// @type List
+$web-font-stack: (
+  'DinPro',
+  'Helvetica Neue',
+  'Helvetica',
+  'Arial',
+  sans-serif
+) !default;
+
+// Web font family
+// @type List
+$web-font-stack--secondary: (
+  'DinPro',
+  'Helvetica Neue',
+  'Helvetica',
+  'Arial',
+  sans-serif
+) !default;
+
+
+$font-size--base: 21px;
+$font-size--xxs:  12px;
+$font-size--xs:   14px;
+$font-size--sm:   18px;
+$font-size--md:   36px;
+$font-size--lg:   42px;
+$font-size--xl:   74px;
+
+$line-height--base: 27px;
+$line-height--xxs: 20px;
+$line-height--xs: 24px;
+$line-height--sm: 36px;
+$line-height--md: 42px;
+$line-height--lg: 56px;
+$line-height--xl: 92px;
+
+$font-size-heavy--xxs: 6; // 36px
+$font-size-heavy--xs: 8; // 48px
+$font-size-heavy--md: 12; // 72px
+$font-size-heavy--lg: 16; // 96px
+$font-size-heavy--xl: 18; // 108px
+
+$line-height-heavy--xxs: 7; // 42px
+$line-height-heavy--xs: 9; // 54px
+$line-height-heavy--md: 13; // 78px
+$line-height-heavy--lg: 17; // 102px
+$line-height-heavy--xl: 19; // 114px
+
+$font-size-readability--xs: 2; //14px
+$font-size-readability--md: 3; //21px
+
+$line-height-readability--xs: 3; //21px
+$line-height-readability--md: 4; //28px
+
+
+/**
+ * Colors descr
+ *
+ * @section Colors
+ * @sectionof Variables
+ *
+ * @example
+ *
+ */
+
+// Body text color
+// @type Color
+$text-color:          rgb(27, 27, 27) !default;       // #1B1B1B
+
+// Main brand color
+// @type Color
+$brand-color:         rgb(27, 27, 27) !default;       // #1B1B1B
+
+// Main brand color variant
+// @type Color
+$variant-brand-color: rgb(37, 37, 37) !default;       // #252525
+
+// Secondary brand color
+// @type Color
+$secondary-color:     rgb(198, 198, 198) !default;   // #C6C6C6
+
+// Ultra Light grey
+// @type Color
+$ultra-light-grey:    rgb(248, 248, 248) !default;   // #F8F8F8
+
+// Light grey
+// @type Color
+$light-grey:          rgb(246, 246, 246) !default;   // #F6F6F6
+
+// Medium grey
+// @type Color
+$mid-grey:            rgb(227, 227, 227) !default;   // #E3E3E3
+
+// Dark grey
+// @type Color
+$dark-grey:           rgb(59, 59, 59) !default;      // #3B3B3B
+
+// Ultra dark grey
+// @type Color
+$ultra-dark-grey:     rgb(37, 37, 37) !default;       // #252525
+
+// Black
+// @type Color
+$black:               rgb(27, 27, 27) !default;  // #1B1B1B
+
+// White
+// @type Color
+$white:               rgb(255, 255, 255) !default;   // #FFFFFF
+
+// Tint color
+// @type Color
+$tint-color:          rgb(248, 248, 248) !default;   // #F8F8F8
+
+// States color
+// @type Color
+$positive-color:      rgb(230, 244, 207) !default;
+$warning-color:       rgb(245, 166, 35) !default;
+$negative-color:      rgb(208, 2, 27) !default;
+$focus-color:         rgb(211, 219, 235) !default;
+$disabled-color:      $mid-grey;
+
+// Specific color
+// @type Color
+$label-color-dark:    $text-color;
+$label-color-light:   $light-grey;
+
+// Define component common color - background
+$component-active-color:  #fff !default;
+$component-active-bg:     $brand-color !default;
+
+
+/**
+ * Transitions descr
+ *
+ * @section Transitions
+ * @sectionof Variables
+ *
+ * @example
+ *
+ */
+
+// Easily modify transitions behaviour with those boolean
+$transition-time: 200ms !default;
+
+
+/**
+ * Options descr
+ *
+ * @section Options
+ * @sectionof Variables
+ *
+ * @example
+ *
+ */
+
+// Easily modify styles behaviour with those boolean
+$enable-flex:               true !default;
+$enable-grid-classes:       true !default;
+
+
+/**
+ * Components descr
+ *
+ * @section Components
+ * @sectionof Variables
+ *
+ * @examples
+ *
+ */
+
+
+// Typography
+$px-font-size:					21 !default;
+$px-line-height:				27 !default;
+
+// Create the new $rhythm based on $px-font-size and $px-line-height
+$rhythm: 20px;
+
+/**
+ * Layouts
+ *
+ * @section Layouts
+ * @sectionof Variables
+ *
+ * @example
+ *
+ */
+
+// Set the number of columns and specify the width of the gutters.
+$grid-columns:            12 !default;
+$grid-gutter-width-base:  $rhythm !default;
+$grid-gutter-widths: (
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base,
+  lg: $grid-gutter-width-base,
+  xl: $grid-gutter-width-base
+) !default;
+
+$gh: $rhythm;
+
+// Define spacing
+$spacing-unit: $gh;
+$spacing-unit--xxs: ( .25 * $gh );
+$spacing-unit--xs: ( .5 * $gh );
+$spacing-unit--sm: ( 1.5 * $gh );
+$spacing-unit--md: ( 2 * $gh );
+$spacing-unit--lg: ( 3 * $gh );
+$spacing-unit--xl: ( 6 * $gh );
+$spacing-unit--xxl: ( 8 * $gh );
+
+// Define sizer
+$sizer-unit: $gh;
+$sizer-unit--xxs: ( .25 * $gh );
+$sizer-unit--xs: ( .5 * $gh );
+$sizer-unit--sm: ( 1.5 * $gh );
+$sizer-unit--md: ( 2 * $gh );
+$sizer-unit--lg: ( 3 * $gh );
+$sizer-unit--xl: ( 4 * $gh );
+$sizer-unit--xxl: ( 8 * $gh );
+
+// Define base border-width
+$border-width:          2px;
+$border-width--xs:      1px;
+$border-width--md:      4px;
+
+// Define base border-radius
+$border-radius:         3px;
+$border-radius--sm:     1px;
+$border-radius--lg:     4px;
+
+// Define button-size
+$button-size:           $sizer-unit--xl;
+
+// Define caret width
+$caret-width:           4.8 !default;
+
+/**
+ * Z-index
+ */
+
+$zindex-text-overlay:     1000 !default;
+$zindex-b:                1010 !default;
+$zindex-c:                1020 !default;
+$zindex-d:                1030 !default;
+$zindex-navbar:           1040 !default;
+$zindex-zoom-overlay:     1050 !default;
+$zindex-zoom-img:         1060 !default;
+
+/**
+ * Specific sizing variables
+ */
+
+$nav-height:              90px !default; // 90px
+$nav-height--md:          114px !default; // 114px
+
+$footer-height:           115px !default;
+$footer-height--sm:       85px  !default;
+$footer-height--md:       55px  !default;
+
+$modal-width:             ( 15 * $gh ) !default; // 300px
+$modal-width--md:         ( 20 * $gh )   !default; // 360px
+
+$gallery-offset:          ( 4.5 * $gh )    !default; // 96px
+
+// Wrapper's maximum width
+// @type Length
+// $wrapper-max-width: 1180px !default;
+
+// Breakpoints map
+$grid-breakpoints: (
+  xs:   0,
+  sm:   576px,
+  md:   768px,
+  lg:   992px,
+  xl:   1200px
+) !default;
+
+
+// Hold our breakpoint aliases and conditions in a list.
+// These can be used later on via the `media-query()` mixin found in
+// `_mixins`.
+
+$media-breakpoints: (
+  xs            "screen and (min-width: 0)",
+  sm            "screen and (min-width: 576px)",
+  md            "screen and (min-width: 768px)",
+  lg            "screen and (min-width: 992px)",
+  xl            "screen and (min-width: 1200px)",
+  retina        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
+) !default;
+
+// Define the maximum width of `.wrapper` for different screen sizes.
+$wrapper-max-widths: (
+  sm:   540px,
+  md:   720px,
+  lg:   960px,
+  xl:   1200px
+) !default;
+
+
+/**
+ * Urls
+ */
+
+// Relative or absolute URL where all assets are served from
+// @type String
+// @example scss - When using a CDN
+//   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/assets/' !default;

@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    LAYOUT: NAVBAR
+\*------------------------------------*/
+
+
+/**
+ * Navbar
+ * @section
+ */
+
+.l-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 $spacing-unit;
+
+  position: relative;
+  height: 100px;
+
+  @include media-query( sm ) {
+    padding: 0 $spacing-unit--xs;
+  }
+}
+
+.l-navbar--reverse {
+  border-width: 0;
+}
+
+.l-navbar__home-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  padding-right: $spacing-unit--sm;
+}
+
+.l-navbar__logo {
+  margin: 0;
+
+  height: $sizer-unit--xl;
+  width: ( 908 / 290.4 ) * $sizer-unit--xl;
+
+  line-height: 0;
+
+  fill: $black;
+}
+
+.l-navbar__list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  font-size: inherit;
+}

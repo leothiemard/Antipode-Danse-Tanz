@@ -1,0 +1,103 @@
+/*------------------------------------*\
+    COMPONENTS: RELATED
+\*------------------------------------*/
+
+
+/**
+ * Related
+ * @section
+ */
+
+.c-related {
+  width: 100%;
+  margin-bottom: $spacing-unit;
+
+  p {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+  }
+}
+
+.c-related__inner {
+  padding: $spacing-unit $spacing-unit 0;
+
+  border-style: solid;
+  border-color: $black;
+  border-top-width: $border-width--xs;
+  border-right-width: 0;
+  border-bottom-width: $border-width--xs;
+  border-left-width: 0;
+}
+
+.c-related__hook {
+  @include font-weight( regular );
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+}
+
+.c-related__link {
+  color: $brand-color;
+
+  @include on-event() {
+    color: darken( $brand-color, 10% );
+  }
+}
+
+.c-related__title {
+  @include font-weight( bold );
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+}
+
+/**
+ * Related-list
+ * @section
+ */
+
+.c-related-list {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.c-related-list__item {
+  margin-bottom: $spacing-unit;
+
+  border-style: solid;
+  border-color: $text-color;
+  border-width: 0;
+  border-bottom-width: $border-width--xs;
+
+  @include media-query(md) {
+    margin-bottom: $spacing-unit--lg;
+  }
+}
+
+.c-related-list__link {
+  color: inherit;
+  display: block;
+  margin-bottom: $spacing-unit;
+
+  @include media-query(md) {
+    margin-bottom: $spacing-unit--lg;
+  }
+}
+
+.c-related-list__title {
+  color: inherit;
+  margin-bottom: $spacing-unit--sm;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include media-query(lg) {
+
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+
+  }
+}
+

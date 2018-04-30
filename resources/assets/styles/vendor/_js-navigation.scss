@@ -1,0 +1,140 @@
+/*------------------------------------*\
+    VENDOR: JS-NAVIGATION
+\*------------------------------------*/
+
+
+// Fixed Nav
+#js-nav-fix.js-nav--fixed {
+  position: fixed;
+  z-index: $zindex-navbar;
+}
+
+
+// Switch Nav
+
+#js-nav-switch {
+  position: absolute;
+
+  &.js-nav-switch--shown {
+    position: fixed;
+    transform: translateY( 0 );
+    background-color: $white;
+  }
+
+  &.js-nav-switch--hidden {
+    position: fixed;
+    transform: translateY( -100% );
+    background-color: $white;
+  }
+
+  &.js-nav-switch--animated {
+    border-width: $border-width--xs;
+    border-color: $light-grey;
+    border-style: solid;
+
+    transition: transform $transition-time;
+  }
+
+  &.l-head--reverse.js-nav-switch--reversed {
+    border-width: 0;
+    background-color: black;
+  }
+}
+
+
+// Navigation on small viewports
+.js-nav__links {
+  position: absolute;
+  height: calc( 100vh - #{$nav-height} - 2 * #{$spacing-unit--sm} );
+
+  top: ( $nav-height - 3 * $spacing-unit--sm );
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: 0;
+  padding-top: $spacing-unit--xl;
+
+  display: inline-flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  @include media-query( md ) {
+    position: inherit;
+    height: inherit;
+
+    top: inherit;
+    bottom: inherit;
+    left: inherit;
+    right: inherit;
+
+    margin: inherit;
+    padding-top: inherit;
+
+    display: inherit;
+    flex-direction: inherit;
+    justify-content: inherit;
+
+    opacity: inherit;
+
+    pointer-events: inherit;
+
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+  }
+}
+
+.js-nav__item--action {
+  display: inline-block !important;
+
+  @include media-query( md ) {
+    display: none !important;
+  }
+
+  .js-nav__close {
+    display: none !important;
+  }
+}
+
+.js-nav--open {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  .js-nav__links {
+    pointer-events: initial;
+    opacity: 1;
+  }
+
+  .js-nav__open {
+    display: none !important;
+  }
+
+  .js-nav__close {
+    display: inline-flex !important;
+  }
+
+  // Specific styles for reversed nav on small viewports
+  .l-head {
+    color: $white;
+    background-color: black;
+  }
+
+  .l-navbar {
+    @extend .l-navbar--reverse;
+  }
+
+  .c-nav__link {
+    @extend .c-nav__link--reverse;
+  }
+
+  .js-nav__links {
+    background-color: black;
+  }
+}

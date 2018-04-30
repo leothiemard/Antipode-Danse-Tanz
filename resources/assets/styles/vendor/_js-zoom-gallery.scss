@@ -1,0 +1,163 @@
+/*------------------------------------*\
+    VENDOR: JS-ZOOM-GALLERY
+\*------------------------------------*/
+
+
+// Gallery box
+.js-gallery {
+  all: unset;
+  position: fixed;
+  background-color: $black;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 300ms linear, opacity 300ms linear;
+  padding: 0;
+  z-index: 2147483646;
+
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+.js-gallery__image {
+  cursor: zoom-in;
+  transition: transform 300ms cubic-bezier(.2, 0, .1, 1), opacity 300ms;
+}
+
+.js-gallery figure {
+  opacity: 0;
+  z-index: 2147483649;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  max-height: 100%;
+  max-width: 100%;
+
+  position: absolute;
+  margin-right: auto;
+  margin-left: auto;
+  padding: $spacing-unit;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  @include media-query( sm ) {
+    //padding: $spacing-unit ( $spacing-unit--lg * 2 );
+  }
+}
+
+.js-gallery .js-gallery__img-container {
+  width: 100%;
+
+  img {
+    object-fit: scale-down;
+    height: calc( 100vh - ( #{$spacing-unit} * 2 + #{$gallery-offset} ) );
+    max-width: calc( 100vw - ( #{$spacing-unit} * 2 ) );
+  }
+}
+
+.js-gallery .js-gallery__text-container {
+  height: $gallery-offset;
+  padding: $spacing-unit--sm $spacing-unit;
+  z-index: 2147483650;
+
+  figcaption {
+    display: inline;
+    margin-bottom: 0;
+    padding-top: 0;
+
+    color: $white;
+    -webkit-text-fill-color: $white;
+  }
+
+  footer {
+    display: inline;
+    color: $mid-grey;
+    -webkit-text-fill-color: $mid-grey;
+    text-shadow: 1px 1px 2px $dark-grey;
+    @include font-weight( regular );
+  }
+}
+
+.js-gallery--open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.js-gallery.js-gallery--loaded figure {
+  opacity: 1;
+}
+
+body:not(.u-is-mobile) .js-gallery__controller  {
+  @include on-event() {
+    opacity: 1;
+    color: $white;
+  }
+}
+
+// Controller
+.js-gallery__controller {
+  position: absolute;
+  z-index: 3147483660;
+
+  height: $sizer-unit;
+  width: $sizer-unit;
+
+  cursor: pointer;
+
+  color: $white;
+  opacity: .8;
+  transition: opacity 200ms;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include font-weight( semibold );
+}
+
+.js-gallery__controller--close {
+  top: $spacing-unit;
+  right: $spacing-unit;
+}
+
+.js-gallery__controller--prev {
+  bottom: $spacing-unit--lg;
+  left: $spacing-unit--lg;
+}
+.js-gallery__controller--next {
+  bottom: $spacing-unit--lg;
+  right: $spacing-unit--lg;
+}
+
+
+// Zoom effect
+.js-gallery-zoom__wrap {
+  position: relative;
+  transition: transform 300ms cubic-bezier(.2, 0, .1, 1);
+  z-index: 2147483647;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.js-gallery--open, .js-gallery--open > img, .js-gallery--open > figure {
+  cursor: default;
+
+  @include media-query( sm ) {
+    cursor: zoom-out;
+  }
+}
+
+.js-gallery-zoom--open, .js-gallery-zoom--open > img, .js-gallery-zoom--open > figure {
+  cursor: default;
+
+  @include media-query( sm ) {
+    cursor: zoom-out;
+  }
+}

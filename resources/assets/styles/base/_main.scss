@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    BASE: MAIN
+\*------------------------------------*/
+
+main {
+  min-height: calc( 100vh - #{$nav-height} - #{$footer-height} );
+
+  @include media-query( sm ) {
+    min-height: calc( 100vh - #{$nav-height--md} - #{$footer-height--sm} );
+  }
+
+  @include media-query( md ) {
+    min-height: calc( 100vh - #{$nav-height--md} - #{$footer-height--md} );
+  }
+}

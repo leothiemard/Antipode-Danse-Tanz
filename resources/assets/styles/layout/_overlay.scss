@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    LAYOUT: OVERLAY
+\*------------------------------------*/
+
+
+.l-overlay {
+  z-index: 2147483647;
+  position: fixed;
+  background-color: rgba( $black, .6 );
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0;
+}

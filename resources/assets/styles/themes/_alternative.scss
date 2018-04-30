@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    THEMES: ALTERNATIVE
+\*------------------------------------*/
+
+.t-projects {
+  background-color: #DCDFE3;
+}
+
+
+.t-agenda {
+  background-color: #C9E8FB;
+}
+
+.t-company {
+  background-color: #C9E8FB;
+}
+
+.t-contact {
+  background-color: #FFFF68;
+}
+
+.t-alt {
+	padding-top: $spacing-unit--xs;
+  	background-color: #FBE0ED;
+
+  	@include media-query(sm) {
+		padding: $spacing-unit--md 0;
+  	}
+}

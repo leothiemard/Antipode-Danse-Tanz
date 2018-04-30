@@ -1,0 +1,143 @@
+/*------------------------------------*\
+    COMPONENTS: BOXES
+\*------------------------------------*/
+
+
+/**
+ * Boxes
+ * @section
+ */
+
+
+/**
+ *
+ * Base boxes descr
+ *
+ * @section Base
+ * @sectionof Boxes
+ *
+ * @example
+ * <article class="c-box">
+ *   <a href="#" class="c-box__inner u-link-block">
+ *     <h1 class="c-heading u-mb">Read next</h1>
+ *     <div class="o-flag c-related">
+ *       <div class="o-flag__img">
+ *         <img src="http://placehold.it/120x80" alt="Thumbnail" class="c-related__thumbnail c-thumbnail">
+ *       </div>
+ *       <div class="o-flag__body">
+ *         <h1 class="c-heading__title--sub c-related__title">This is the related article title.</h1>
+ *         <p>This box can handle a short description too.</p>
+ *       </div>
+ *     </div>
+ *   </a>
+ * </article>
+ */
+
+.c-box {
+  width: 100%;
+  margin-bottom: $spacing-unit--xxl;
+
+  p {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+  }
+
+}
+
+.c-box__inner {
+  padding: $spacing-unit--md;
+  border-style: solid;
+  border-color: $black;
+  border-width: $border-width--xs;
+
+  @include border-radius( $border-radius );
+
+  @include media-query( sm ) {
+    padding: $spacing-unit--md $spacing-unit;
+  }
+}
+
+.c-box--paywall {
+
+  @include media-query( lg ) {
+    margin-bottom: $spacing-unit;
+  }
+
+  p {
+
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+
+  }
+
+  .c-box__header {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+  }
+
+  .c-box__inner {
+    border-color: $mid-grey;
+  }
+
+}
+
+.c-box--entry {
+  p {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    & > img  {
+      margin-bottom: $spacing-unit--sm;
+    }
+  }
+}
+
+.c-box--reversed {
+  color: white;
+  background-color: black;
+
+  padding: $spacing-unit--sm;
+  margin-bottom: $spacing-unit;
+
+  @include media-query( sm ) {
+    padding: $spacing-unit;
+  }
+}
+
+.c-box--grid {
+  margin-bottom: $spacing-unit--xxl;
+  padding-bottom: $spacing-unit--xxl;
+
+  border-bottom-style: solid;
+  border-bottom-color: $black;
+  border-bottom-width: $border-width;
+
+  &:last-of-type {
+    border-bottom-width: 0;
+    margin-bottom: 0;
+  }
+}
+
+.c-box--grid {}
+
+.c-box__header {
+  margin-top: 0 !important;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-box__title {
+  @include font-weight( regular );
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-box__content {
+  padding: 0 $spacing-unit--md;
+}

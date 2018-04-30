@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    COMPONENTS: ALERTS
+\*------------------------------------*/
+
+
+/**
+ * Alerts
+ * @section
+ */
+
+
+.c-alert {
+  width: 100%;
+  padding: $spacing-unit $spacing-unit--sm;
+
+  //@include v-rhythm( $font-size--sm, $line-height--sm );
+  @include border-radius($border-radius);
+}
+
+.c-alert__link {
+  color: currentColor;
+}
+
+.c-alert--positive {
+  background-color: $positive-color;
+}
+
+.c-alert--info {
+  background-color: $tint-color;
+}
+
+.c-alert--warning {
+  background-color: $warning-color;
+}
+
+.c-alert--negative {
+  background-color: $negative-color;
+}

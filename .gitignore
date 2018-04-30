@@ -1,4 +1,41 @@
-/.env
-/.idea
-/vendor
-.DS_Store
+# Assets
+web/assets/*
+
+# Developer files
+personal
+
+# PhpStorm generated files
+.idea
+
+# OSX generated files
+*.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Package Managers
+node_modules
+npm_modules
+bower_components
+_webdata
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Vendor (e.g. Composer)
+vendor/*
+!vendor/.gitkeep
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Docker
+docker/*

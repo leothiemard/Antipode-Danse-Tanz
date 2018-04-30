@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    COMPONENTS: HERO
+\*------------------------------------*/
+
+
+.c-hero {
+  margin-bottom: $spacing-unit--xxl;
+
+  @extend .u-clearfix;
+}
+
+.c-hero--has-image {
+  background-color: rgba( $black , 0.4 );
+  color: #fff;
+}
+
+.c-hero__content {
+  @include vertical-align();
+}
+
+.c-hero__img {
+  z-index: -1;
+  position: absolute;
+
+  min-height: 100%;
+  min-width: 100%;
+
+  max-height: none;
+  max-width: none;
+
+  top: -100%;
+  right: -100%;
+  bottom: -100%;
+  left: -100%;
+
+  height: auto;
+  width: auto;
+
+  margin:auto;
+}
+
+.c-hero__title {
+  overflow: hidden;
+
+  font-size: $font-size--xl;
+  line-height: $line-height--xl;
+
+  @include media-query( sm ){
+
+    font-size: $font-size--xl;
+    line-height: $line-height--xl;
+
+  }
+
+  @include media-query( md ){
+
+    font-size: $font-size--xl;
+    line-height: $line-height--xl;
+
+  }
+
+  @include media-query( lg ){
+
+    font-size: $font-size--xl;
+    line-height: $line-height--xl;
+
+  }
+}
+
+.c-hero__gate {
+  &:first-child {
+    margin-bottom: $spacing-unit--lg;
+  }
+}

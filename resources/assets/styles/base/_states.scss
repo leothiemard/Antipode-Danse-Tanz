@@ -1,0 +1,41 @@
+/*------------------------------------*\
+    BASE: STATES
+\*------------------------------------*/
+
+
+// Pinned to top states for articles with fullscreen header image
+.is-pinned-to-top {
+  position: relative;
+  top: -( $nav-height + $border-width--xs );
+
+  @include media-query(md) {
+    top: -($nav-height--md + $border-width--xs);
+  }
+}
+
+
+// Fade last paragraph to white for non-logged or non-subscribed user.
+.is-fading {
+  position: relative;
+  pointer-events: none;
+  
+  &:after {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+    background-image: linear-gradient( rgba($white, 0 ), $white 100%, $white );
+    pointer-events: none;
+  }
+}
+
+
+// Add this class to body, if it has the basic navigation
+.has-navigation {
+  padding-top: $nav-height + $border-width--xs;
+  @include media-query(md){
+    padding-top: $nav-height--md + $border-width--xs;
+  }
+}
+

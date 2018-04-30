@@ -1,0 +1,55 @@
+/*------------------------------------*\
+    COMPONENTS: MODALS
+\*------------------------------------*/
+
+
+/**
+ * Modal
+ * @section
+ */
+
+
+.c-modal {
+  padding: $spacing-unit--md 0;
+  background-color: $white;
+
+  width: $modal-width;
+  margin-left: -( $modal-width / 2 );
+  left: 50%;
+
+  @include vertical-align( absolute );
+  @include border-radius( $border-radius );
+
+  @include media-query( sm ) {
+    width: $modal-width--md;
+    margin-left: -( $modal-width--md / 2 );
+  }
+}
+
+.c-modal__main {
+}
+
+.c-modal__head {
+  padding: 0 $spacing-unit--lg;
+  margin-bottom: $spacing-unit;
+  text-align: center;
+}
+
+.c-modal__heading {
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-modal__heading--sup {
+  @include font-weight( light );
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-modal__body {
+  padding: $spacing-unit--xxl $spacing-unit--lg 0;
+
+  border-top-style: solid;
+  border-top-color: currentColor;
+  border-top-width: $border-width--xs;
+}

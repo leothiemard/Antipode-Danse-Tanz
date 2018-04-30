@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    COMPONENTS: SUGGESTIONS
+\*------------------------------------*/
+
+.c-suggestion {
+  margin-left: 0;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+body:not(.u-is-mobile) .c-suggestion__item {
+  @include on-event() {
+    color: $white;
+    background-color: $black;
+  }
+}
+
+.c-suggestion__item {
+  margin-top: $spacing-unit--sm;
+  padding: $spacing-unit--xs $spacing-unit--sm;
+
+  color: $black;
+  background-color: $white;
+
+  border-style: solid;
+  border-color: $light-grey;
+  border-width: $border-width--xs;
+
+  @include border-radius( $border-radius );
+}

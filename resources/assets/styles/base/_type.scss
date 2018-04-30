@@ -1,0 +1,176 @@
+/*------------------------------------*\
+    BASE: TYPES
+\*------------------------------------*/
+
+
+/**
+ * Types
+ * @section
+ */
+
+
+/**
+ * Reboot types margin
+ */
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+blockquote,
+pre,
+dl, dd,
+ol, ul,
+form, fieldset,
+legend,
+figure,
+table,
+th, td,
+caption,
+hr {
+  margin: 0;
+  padding: 0;
+}
+
+/**
+ * Global Font sizing
+ */
+
+body {
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+/**
+ * Headings 1–6
+ */
+
+@include headings() {
+  margin: 0;
+}
+
+h1 {
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+  @include font-weight( bold );
+
+  @include media-query( sm ) {
+    font-size: $font-size--sm;
+    line-height: $line-height--sm;
+  }
+
+  @include media-query( md ) {
+    font-size: $font-size--md;
+    line-height: $line-height--md;
+  }
+
+  @include media-query( xl ) {
+    font-size: $font-size--xl;
+    line-height: $line-height--xl;
+  }
+}
+
+h2 {
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+  @include font-weight( bold );
+
+  @include media-query( sm ) {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+  }
+
+  @include media-query( md ) {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+  }
+}
+
+h3 {
+  @include font-weight( normal );
+  font-size: $font-size--xxs;
+  line-height: $line-height--xxs;
+
+  @include media-query( sm ) {
+    font-size: $font-size--xs;
+    line-height: $line-height--xs;
+  }
+}
+
+h4 {
+  font-size: $font-size--md;
+  line-height: $line-height--md;
+}
+
+h5 {
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+}
+
+h6 {
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+}
+
+
+/**
+ * Small elements
+ */
+
+small {
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+}
+
+
+/**
+ * Sup elements
+ */
+
+sup {
+  top: -.25em;
+  @include media-query( sm ) {
+    top: -.5em;
+  }
+}
+
+
+/**
+ * Bold elements
+ */
+strong,
+b {
+  @include font-weight( bold );
+}
+
+
+/**
+ * Medium elements
+ */
+
+
+/**
+ * Generic paragraph style
+ */
+
+p {
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include font-weight( light );
+}
+
+address {
+  font-style: normal;
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include font-weight(medium);
+}
+
+
+/**
+ * Generic caption style
+ */
+figcaption {
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+}

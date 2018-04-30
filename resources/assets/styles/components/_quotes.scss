@@ -1,0 +1,42 @@
+/*------------------------------------*\
+      COMPONENTS: QUOTES
+\*------------------------------------*/
+
+
+/**
+ * Quotes
+ * @section
+ */
+
+
+/**
+ * Block quotes.
+ */
+
+blockquote {
+  margin: $spacing-unit 0;
+  padding-left: $spacing-unit--lg;
+  border-left: solid 2px $text-color;
+
+  p {
+    text-indent: 0;
+
+    &:before {
+      content: no-open-quote;
+    }
+
+    &:after {
+      content: no-close-quote;
+    }
+  }
+  q {
+    &:before {
+      content: no-open-quote;
+    }
+
+    &:after {
+      content: no-close-quote;
+    }
+  }
+
+}

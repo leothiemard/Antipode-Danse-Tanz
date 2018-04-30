@@ -1,0 +1,93 @@
+{#
+ # Company index template
+ # -------------------
+ #
+ # This template is loaded whenever http://example.com/projects is
+ # requested.
+ #
+ #}
+
+{% extends "_layouts/site" %}
+
+{% set title = "Compagnie" %}
+
+{% set bodyClass = 't-company' %}
+
+{% set entries = craft.entries.section('company') %}
+
+{% set companyImage = entry.companyImage.one() %}
+{% set memberPortrait = entry.teamMemberPortrait.one() %}
+
+{% block main %}
+
+    <section class="l-section">
+        <div class="o-wrapper">
+        	<div class="o-layout">
+
+        		<div class="o-col-12@xs o-col-6@sm">
+					<figure>
+                 		<img class="u-mb--0" src="{{ companyImage.getUrl() }}" width="100%" height="100%" />
+                    </figure>
+        		</div>
+
+        		<div class="o-col-12@xs o-col-6@sm">
+                    <div class="o-layout">
+                        <header class="o-col-12@xs">
+                            <h1 class="c-heading u-mt">{{ siteName }}</h1>
+                            <hr class="u-separator">
+                        </header>
+                    </div>
+                    <div class="o-layout">
+                        <div class="o-col-12@xs">
+                            <p class="c-lead--entry">{{ entry.descriptionFr }}</p>
+                            <p class="c-lead--entry">{{ entry.descriptionDe }}</p>
+                            <p class="c-lead--entry">{{ entry.descriptionEn }}</p>
+                        </div>
+                    </div>
+        		</div>
+
+        	</div>
+        </div>
+    </section>
+
+    <section class="l-section l-section--full t-alt">
+        <div class="o-wrapper">
+        	<div class="o-layout">
+
+                <div class="o-col-12@xs o-col-6@sm">
+                    <div class="o-layout">
+                        <header class="o-col-12@xs">
+                            <h1 class="c-heading u-mt">Nicole Morel</h1>
+                            <hr class="u-separator">
+                            <p class="c-lead--entry u-mb--xxs">Direction artistique</p>
+                            <p class="c-lead--entry u-mb--xxs">Künstlerische Leitung</p>
+                            <p class="c-lead--entry u-mb--md">Artistic direction</p>
+                        </header>
+                    </div>
+                    <div class="o-layout">
+                        <div class="o-col-12@xs">
+                            <ul class="o-list">
+                                {% for row in entry.curriculumVitae %}
+                                    <li class="u-underline u-mb--xxs">{{ row.year }}</li>
+                                    {% if row.link | length %}
+                                    <li class="u-mb--xxs"><strong><a href="{{ row.link }}" target="_blank">{{ row.experience }}</a></strong></li>
+                                    {% else %}
+                                    <li class="u-mb--xxs"><strong>{{ row.experience }}</strong></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+        		<div class="o-col-12@xs o-col-6@sm">
+					<figure>
+                 		<img class="u-mt--neg" src="{{ memberPortrait.getUrl() }}" width="100%" height="100%" />
+                    </figure>
+        		</div>
+
+        	</div>
+        </div>
+    </section>
+
+{% endblock %}

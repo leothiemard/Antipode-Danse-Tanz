@@ -1,0 +1,85 @@
+/*------------------------------------*\
+    COMPONENTS: CATCHLINES
+\*------------------------------------*/
+
+
+/**
+ * Catchlines
+ * @section
+ */
+
+body:not(.u-is-mobile) .c-card {
+  @include on-event(){
+    .c-card__title,
+    .c-card__excerpt,
+    .c-card__meta {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .c-card__title {
+      opacity: 1;
+    }
+  }
+}
+
+.c-card {
+  color: $white;
+  margin-bottom: $spacing-unit;
+
+  .u-ratio-box {
+    padding-bottom: calc( 100% * ( 8 / 5 ) );
+  }
+
+  figure {
+    img {
+      position: absolute;
+      // @include vertical-align(absolute);
+    }
+  }
+}
+
+.u-ratio-box {
+  height: 0;
+  overflow: hidden;
+  background: white;
+  position: relative;
+}
+
+.c-card__img {
+  position: relative;
+  align-self: end;
+
+  img {
+    width: 100%;
+    min-height: 100%;
+    margin-bottom: 0;
+    object-fit: cover;
+  }
+}
+
+.c-card__title {
+  opacity: 0;
+
+  z-index: 2;
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  margin-left: $spacing-unit--xs;
+
+  transform: translateY(-50%);
+
+  width: calc( 100% - ( 2 * #{$spacing-unit--xs}) );
+
+  color: inherit;
+
+  text-align: center;
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+}
+
+.c-card__title--highlight {
+}

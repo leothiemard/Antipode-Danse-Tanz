@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    VENDOR: JS MULTI-COLUMN
+\*------------------------------------*/
+
+
+.column {
+  float: left;
+  @include make-col-ready();
+}
+
+.size-1of2 {
+  width: 50%;
+}
+
+.size-1of3 {
+  width: 33.33333%;
+}
+
+.size-1of4 {
+  width: 25%;
+}

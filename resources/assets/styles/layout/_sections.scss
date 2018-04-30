@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    LAYOUT: BANDS
+\*------------------------------------*/
+
+
+/**
+ * Bands
+ * @section
+ */
+
+.l-section {
+  padding-right: $spacing-unit--xs;
+  padding-left: $spacing-unit--xs;
+
+  @include media-query(sm) {
+    padding-right: $spacing-unit--md;
+    padding-left: $spacing-unit--md;
+
+    margin-right: $spacing-unit--md;
+    margin-left: $spacing-unit--md;
+  }
+}
+
+.l-section--full {
+  @include media-query(sm) {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.l-section--inverted {
+  background-color: $black;
+
+  padding-bottom: ( 2 * $spacing-unit--xl );
+  padding-right: $spacing-unit--md;
+  padding-left: $spacing-unit--md;
+
+  margin-bottom: 0;
+
+  margin-right: 0;
+  margin-left: 0;
+
+  color: $white;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.l-section--alt {
+  background-color: $ultra-dark-grey;
+}
+
+.l-section--transparent {
+  background-color: transparent;
+}

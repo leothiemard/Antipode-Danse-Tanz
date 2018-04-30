@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    BASE: FONTS
+\*------------------------------------*/
+
+
+// --
+// Suisse Inlt'
+// --
+
+@include font-face( "Made Evolve Sans", "../fonts/Made-Evolve-Sans-Thin", 200, normal, woff );
+@include font-face( "Made Evolve Sans", "../fonts/Made-Evolve-Sans-Light", 300, normal, woff );
+@include font-face( "Made Evolve Sans", "../fonts/Made-Evolve-Sans-Regular", 400, normal, woff );
+@include font-face( "Made Evolve Sans", "../fonts/Made-Evolve-Sans-Medium", 500, normal, woff );
+@include font-face( "Made Evolve Sans", "../fonts/Made-Evolve-Sans-Bold", 700, normal, woff );

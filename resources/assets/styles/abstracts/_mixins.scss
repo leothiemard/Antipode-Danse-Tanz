@@ -1,0 +1,362 @@
+/*------------------------------------*\
+    ABSTRACTS: MIXINS
+\*------------------------------------*/
+
+
+/**
+ * Mixins
+ * @section
+ */
+
+
+/**
+ * Utilities
+ */
+
+// Vendor
+@mixin vendor($property, $value...) {
+  #{$property}: $value;
+}
+
+// Clearfix
+@mixin clearfix() {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Vertical-align
+@mixin vertical-align($position: relative) {
+  position: $position;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  // filter: blur(0);
+}
+
+// Keyframes, Transitions & Animations
+
+@mixin transition($transition...) {
+  transition: $transition;
+}
+
+@mixin keyframes($animation-name) {
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  animation: #{$str};
+}
+
+// generic transform
+@mixin transform($transforms) {
+  transform: $transforms;
+}
+
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+// translate
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+// translate3d
+@mixin translate3d ($x, $y, $z) {
+  @include transform(translate3d($x, $y, $z));
+}
+
+// skew
+@mixin skew ($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+//transform origin
+@mixin transform-origin ($origin) {
+  transform-origin: $origin;
+}
+
+
+/**
+ * Events
+ */
+
+// Event wrapper
+// @author Harry Roberts
+// @param {Bool} $self [false] - Whether or not to include current selector
+// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+  @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+
+/**
+ * Context
+ */
+
+// Make a context based selector a little more friendly
+// @author Hugo Giraudel
+// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+
+// --
+// Fonts
+// --
+
+// Generate numbered font-weights from their aliases.
+// @author Harry Roberts
+// @param $font-weight - Font-weight alias
+@mixin font-weight($font-weight) {
+
+    @if ($font-weight == "thin") {
+      font-weight: 200;
+    }
+
+    @if ($font-weight == "light") {
+      font-weight: 300;
+    }
+
+    @else if ($font-weight == "regular") {
+      font-weight: 400;
+    }
+
+    @else if ($font-weight == "medium") {
+      font-weight: 500;
+    }
+
+    @else if ($font-weight == "bold") {
+      font-weight: 700;
+    }
+
+}
+
+
+// Font Smoothing
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+
+// Style placeholder in input, already prefixed.
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
+// Style autocomplete in webkit browser
+@mixin input-autocomplete {
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:hover {
+    @content;
+  }
+}
+
+
+// --
+// Radius
+
+// Single side border-radius
+@mixin border-radius($radius: $border-radius) {
+  border-radius: $radius;
+}
+
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin border-top-left-radius($radius) {
+  border-top-left-radius: $radius;
+}
+
+@mixin border-top-right-radius($radius) {
+  border-top-right-radius: $radius;
+}
+
+@mixin border-right-radius($radius) {
+  border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-bottom-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-bottom-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border-left-radius($radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+
+// --
+// Font-face
+// @author Jonathan Neal
+// @link https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+// --
+
+// String Replace
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// Font Face
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+          eot: "?",
+          svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+          otf: "opentype",
+          ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+
+// --
+// Heading
+// --
+
+// Create all heading styles in one go
+// @author Harry Roberts
+// @link https://github.com/csswizardry/csswizardry.github.com/blob/master/css/_tools.mixins.scss
+@mixin headings($from: 1, $to: 6) {
+
+  %base-heading {
+    @content
+  }
+
+  @if $from >= 1 and $to <= 6{
+
+    @for $i from $from through $to{
+
+      h#{$i} {
+        @extend %base-heading;
+      }
+
+    }
+
+  }
+
+}
+
+
+// --
+// Buttons
+// --
+
+// Button sizes
+@mixin button-size($padding-y, $padding-x, $border-radius) {
+  padding: $padding-y $padding-x;
+  @include border-radius($border-radius);
+}
+
+
+// --
+// Media-query
+// --
+
+@mixin media-query($mq) {
+
+  $breakpoint-found: false;
+
+  // Loop through the list of breakpoints we’ve provided in our settings file.
+  @each $breakpoint in $media-breakpoints {
+
+    // Grab the alias and the condition from their respective locations in
+    // the list.
+    $alias:     nth($breakpoint, 1);
+    $condition: nth($breakpoint, 2);
+
+    // If the media query we’ve specified has an alias and a condition...
+    @if $mq == $alias and $condition {
+
+      // ...tell the mixin that we’ve found it...
+      $breakpoint-found: true;
+
+      // ...and spit it out here.
+      @media #{$condition} {
+        @content;
+      }
+
+    }
+
+  }
+
+  // If the user specifies a non-existent alias, send them a warning.
+  @if $breakpoint-found == false{
+    @warn "Oops! Breakpoint ‘#{$mq}’ does not exist."
+  }
+
+}

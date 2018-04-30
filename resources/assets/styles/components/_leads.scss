@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    COMPONENTS: LEADS
+\*------------------------------------*/
+
+
+/**
+ * Leads
+ * @section
+ */
+
+.c-lead {
+  font-size: $font-size--lg;
+  line-height: $line-height--lg;
+
+  p {
+    font-size: $font-size--lg;
+    line-height: $line-height--lg;
+  }
+
+  address {
+    @include font-weight( light );
+    font-size: $font-size--lg;
+    line-height: $line-height--lg;
+  }
+}
+
+.c-lead--entry {
+  margin-bottom: $spacing-unit--sm;
+  &:nth-of-type(1){
+    @include font-weight(bold);
+  }
+  &:nth-of-type(2){
+    @include font-weight(medium);
+  }
+  &:nth-of-type(3){
+    @include font-weight(regular);
+  }
+}

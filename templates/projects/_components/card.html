@@ -1,0 +1,28 @@
+{#
+# Card template
+# -----------------------
+#
+-#}
+
+{% set cardFormat = '' %}
+{% set thumbFormat = '' %}
+
+{% set thumbnail = entry.thumbnail.one() %}
+
+<article class="c-card o-col-6@xs o-col-4@sm">
+    <a class="u-link-block" href="{{ entry.getUrl() }}">
+
+        <header class="c-card__title">
+            <h1 class="c-heading--lg">{{ entry.title }}</h1>
+        </header>
+
+            <div class="c-card__img">
+                <div class="u-ratio-box">
+                    <figure>
+                        <img src="{{ thumbnail.getUrl() }}" width="100%" height="100%" />
+                    </figure>
+                </div>
+            </div>
+
+    </a>
+</article>

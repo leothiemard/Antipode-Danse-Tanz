@@ -1,0 +1,31 @@
+/*------------------------------------*\
+  COMPONENTS: LIST-CARDS
+\*------------------------------------*/
+
+.c-list-cards {
+}
+
+body:not(.u-is-mobile) .c-list-card {
+  @include on-event() {
+    color: $white;
+    background-color: $dark-grey;
+  }
+}
+
+.c-list-card {
+  background-color: $white;
+  margin-bottom: $spacing-unit;
+
+  transition: all 150ms;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-list-card__item {
+  padding-top: $spacing-unit--md;
+  padding-bottom: $spacing-unit--md;
+
+  @include font-weight( light );
+}

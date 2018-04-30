@@ -1,0 +1,335 @@
+/*------------------------------------*\
+    BASE: HELPERS
+\*------------------------------------*/
+
+
+/**
+ * Helpers
+ * @section
+ */
+
+
+// Clear inner floats
+.u-clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+// Hide text while making it readable for screen readers
+// @link https://code.google.com/p/chromium/issues/detail?id=457146
+.u-hide-text {
+  overflow: hidden;
+  padding: 0;
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+// Hide element while making it readable for screen readers
+// @author h5bp
+// @link https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+.u-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.u-fixed-nav {
+  padding-top: $nav-height;
+
+  @include media-query( sm ) {
+    padding-top: $nav-height--md;
+  }
+}
+
+.u-w100 {
+  width: 100%;
+}
+
+.u-w300 {
+  width: 300px;
+}
+
+.u-align--all {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include translate3d( -50%, -50%, 0 );
+}
+
+.u-absolute-center {
+  position:absolute;
+
+  min-height:100%;
+  min-width:100%;
+
+  max-height: none;
+  max-width: none;
+
+  height:auto;
+  width:auto;
+
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+
+  margin:auto;
+}
+
+// Spacing by margin-bottom
+// Use only for element that are in specific state
+.u-mb {
+  margin-bottom: $spacing-unit !important;          // 24px
+}
+
+.u-mb--xxs {
+  margin-bottom: $spacing-unit--xs / 2 !important;  // 6px
+}
+
+.u-mb--xs {
+  margin-bottom: $spacing-unit--xs !important;  // 6px
+}
+
+.u-mb--sm {
+  margin-bottom: $spacing-unit--sm !important;      // 12px
+}
+
+.u-mb--md {
+  margin-bottom: $spacing-unit--md !important;      // 18px
+}
+
+.u-mb--lg {
+  margin-bottom: $spacing-unit--lg !important;      // 36px
+}
+
+.u-mb--xl {
+  margin-bottom: $spacing-unit--xxl !important;     // 42px
+}
+
+.u-mb--xxl {
+  margin-bottom: $spacing-unit--xxl !important;     // 48px
+}
+
+.u-mb--0 {
+  margin-bottom: 0;                   // Reset all margin-bottom
+}
+
+// Spacing by margin-top
+// Use only for element that are in specific state
+.u-mt--neg {
+  margin-top: $spacing-unit;
+  @include media-query(sm) {
+    margin-top: -($spacing-unit--md);
+  }
+}
+
+.u-mt {
+  margin-top: $spacing-unit;       // 24px
+}
+
+.u-mt--xs {
+  margin-top: $spacing-unit;       // 6px
+}
+
+.u-mt--sm {
+  margin-top: $spacing-unit--sm;   // 12px
+}
+
+.u-mt--md {
+  margin-top: $spacing-unit--md;   // 18px
+}
+
+.u-mt--lg {
+  margin-top: $spacing-unit--lg;   // 36px
+}
+
+.u-mt--xl {
+  margin-top: $spacing-unit--xxl;  // 42px
+}
+
+.u-mt--xxl {
+  margin-top: $spacing-unit--xxl;  // 48px
+}
+
+.u-mt--0 {
+  margin-top: 0;                   // Reset all margin-top
+}
+
+.u-separator {
+  border-width: 2px;
+  border-style: solid;
+  margin-top: $spacing-unit--md;
+  margin-bottom: $spacing-unit--md;
+}
+
+
+body:not(.u-is-mobile) .u-link-block {
+  @include on-event(self) {
+    color: currentColor;
+  }
+}
+
+// Use all block as link
+.u-link-block {
+  color: inherit;
+  display: block;
+  cursor: pointer;
+}
+
+body:not(.u-is-mobile) .u-link-sub {
+  @include on-event() {
+    color: $brand-color;
+  }
+}
+
+.u-link-sub {
+  font-weight: inherit;
+  color: inherit;
+}
+
+.u-link-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.u-fs-off {
+  @include font-smoothing(off);
+}
+
+// Uppercase text
+
+.u-uppercase {
+  text-transform: uppercase;
+}
+
+// Underline
+
+.u-underline {
+  text-decoration: underline !important;
+}
+
+// Small text descriptions
+
+.u-small {
+  color: $black;
+  @include font-weight( light );
+
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+}
+
+.u-smaller {
+  color: $black;
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+
+  @include font-weight( light );
+}
+
+// Highlighted text
+
+.u-highlight {
+  color: $brand-color;
+}
+
+
+// Text alignment
+.u-text-center {
+  text-align: center !important;
+}
+
+.u-text-left {
+  text-align: left !important;
+}
+
+.u-text-right {
+  text-align: right !important;
+}
+
+
+// Block alignment
+.u-block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-block-left {
+  @include pull-left();
+}
+
+.u-block-right {
+  @include pull-right();
+}
+
+// Break line after tag with this class
+.u-line-breaker {
+  display: inline-block;
+}
+
+.u-display-inline {
+  display: inline;
+}
+
+
+//
+// Ratio utilities
+//
+
+/*.u-ratio-box {
+  padding-bottom: 100%;
+}*/
+
+
+//
+// Print utilities
+//
+
+@media print {
+  .u-print--hidden, .u-print--hidden * {
+    display: none !important;
+  }
+}
+
+//
+// Responsive utilities
+//
+
+
+// > Responsive hiding class
+// > Responsive alignement
+@each $bp in map-keys($grid-breakpoints) {
+  .u-hidden--up\@#{$bp} {
+    @include media-breakpoint-up($bp) {
+      display: none !important;
+    }
+  }
+  .u-hidden--down\@#{$bp} {
+    @include media-breakpoint-down($bp) {
+      display: none !important;
+    }
+  }
+  @include media-breakpoint-up($bp) {
+    .u-text--left\@#{$bp}   { text-align: left !important; }
+    .u-text--right\@#{$bp}  { text-align: right !important; }
+    .u-text--center\@#{$bp} { text-align: center !important; }
+  }
+}
+
+
+// IE10 Snap Mode
+@-ms-viewport{
+  width: device-width;
+}
+
+
+
+
+
+

@@ -1,0 +1,184 @@
+/*------------------------------------*\
+    COMPONENTS: NAV
+\*------------------------------------*/
+
+.c-nav {
+  display: inline-flex;
+
+  ul {
+    margin: 0;
+  }
+}
+
+.c-nav__logo {
+  height: 100px;
+}
+
+.c-nav__links {
+  display: inline-flex;
+  flex-grow: 1;
+
+  margin-left: 0;
+}
+
+.c-nav__list {
+  flex-grow: 1;
+}
+
+.c-nav__list--primary {
+  flex-direction: column;
+  flex-grow: 0;
+  align-items: stretch;
+}
+
+.c-nav__list--actions {
+  display: inline-flex;
+  flex-grow: 0;
+}
+
+.c-nav__item {
+  padding-left: $spacing-unit--sm;
+  padding-right: $spacing-unit--sm;
+
+  list-style: none;
+  font-size: inherit;
+}
+
+.c-nav__item--action {
+  display: inline-block;
+}
+
+.c-nav__action {
+  display: inline-block;
+  &:last-child {
+    .c-nav__link {
+      padding-right: 0;
+    }
+  }
+}
+
+.c-nav__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+
+  color: $text-color;
+
+  cursor: pointer;
+  background-color: transparent;
+
+  font-size: $font-size--xs;
+  line-height: $line-height--base;
+
+  @include on-event( self ) {
+    outline: none;
+  }
+}
+
+.c-nav__link--primary {
+  color: $brand-color;
+}
+
+.c-nav__link--reverse {
+  @include on-event( self ) {
+    color: $white;
+  }
+  &.c-nav__link--primary {
+    @include on-event( self ) {
+      color: $brand-color;
+    }
+  }
+}
+
+// TABLET + DESKTOP
+
+@include media-breakpoint-up( md ) {
+
+  .c-nav {
+    padding-bottom: 1px;
+
+    display: inline-flex;
+    flex-grow: 1;
+    align-items: center;
+
+    ul {
+      display: inherit;
+    }
+  }
+
+  .c-nav__list--primary {
+    display: inline-flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+  }
+
+  .c-nav__list--primary {
+    justify-content: flex-end;
+  }
+
+  .c-nav__item {
+    display: inline-block;
+
+    padding-left: $spacing-unit--md;
+    padding-right: $spacing-unit--md;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  .c-nav__action {
+    & > .c-nav__link {
+      padding-right: 0;
+    }
+  }
+
+  .c-nav__link {
+    color: inherit;
+    justify-content: center;
+    width: auto;
+
+    background-color: $white;
+    border: 4px solid $black;
+    padding: $spacing-unit--xxs $spacing-unit--xs;
+
+    font-size: $font-size--sm;
+    line-height: $line-height--base;
+
+    @include font-weight( medium );
+
+    @include on-event() {
+      color: $white;
+      background-color: $black;
+    }
+
+  }
+
+  .c-nav__link--active {
+    @include on-event(self) {
+      color: $white;
+      background-color: $black;
+    }
+  }
+
+  .c-nav__link--primary {
+    color: $brand-color;
+  }
+
+  .c-nav--under {
+    position: absolute;
+    padding-top: $spacing-unit;
+  }
+
+  .c-nav--under__item {
+    margin-bottom: $spacing-unit--xxs;
+    transition: all 150ms;
+
+    @include on-event() {
+      padding-left: $spacing-unit--xxs;
+    }
+  }
+}

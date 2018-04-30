@@ -1,0 +1,12 @@
+/*------------------------------------*\
+  COMPONENTS: EMBEDS
+\*------------------------------------*/
+
+
+.c-embed {
+  margin-bottom: $spacing-unit--sm;
+
+  @include media-query( sm ){
+    margin-bottom: $spacing-unit;
+  }
+}

@@ -1,0 +1,525 @@
+/*------------------------------------*\
+    COMPONENTS: FORMS
+\*------------------------------------*/
+
+
+/**
+ * Forms
+ * @section
+ */
+
+
+/**
+ *
+ * Each form must be encapsulated within a `<form>` element with the `.c-form` class.
+ *
+ * Use the `<fieldset>` element to enclose all the form controls, these controls must be grouped by a `<div>` element with the
+ * `.c-form-field` class.
+ *
+ * Add the element class `.c-form__input` to all `<input>`, `<select>` and `<textarea>` elements.
+ *
+ * By default the form elements are stacked vertically and use the full width of their container.
+ *
+ * @section Layout
+ * @sectionof Forms
+ *
+ * @example
+ * <form class="c-form">
+ *  <fieldset>
+ *   <div class="c-form-field">
+ *    <label for="name">Name</label>
+ *    <input type="text" class="c-form__input" id="name" placeholder="Jane Doe">
+ *   </div>
+ *   <div class="c-form-field">
+ *    <label for="email">Email</label>
+ *    <input type="email" class="c-form__input" id="email" placeholder="jane.doe@example.com">
+ *   </div>
+ *   <div class="c-form-field">
+ *    <label for="email">Select</label>
+ *    <select class="c-form__input" id="select">
+ *     <option>option 1</option>
+ *     <option>2</option>
+ *     <option>3</option>
+ *     <option>4</option>
+ *     <option>5</option>
+ *    </select>
+ *   </div>
+ *   <div class="c-form-field">
+ *    <label for="textarea">Message</label>
+ *    <textarea class="c-form__input" id="textarea" rows="3" placeholder="Your message here…"></textarea>
+ *   </div>
+ *  </fieldset>
+ * </form>
+ */
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  &:last-of-type {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.c-form__fieldset {}
+
+.c-form__fieldset--grouped {
+  margin-bottom: $spacing-unit;
+}
+
+.c-form-field {
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  &:last-of-type {
+
+  }
+
+  min-width: 0;
+  border: 0;
+  padding: 0;
+}
+
+.c-form-field--narrow {
+  margin-bottom: 0;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+label {
+  display: inline-block;
+}
+
+body:not(.u-is-mobile) .c-form__input {
+  @include on-event() {
+    background-color: $tint-color;
+    border-bottom-color: $tint-color;
+  };
+}
+
+.c-form__input {
+  width: 100%;
+  padding: ( $spacing-unit--md - $border-width ) $spacing-unit--sm;
+
+  line-height: inherit;
+
+  color: $text-color;
+  background-color: #fff;
+
+  border-width: 0;
+  border-style: solid;
+  border-color: $black;
+  border-bottom-width: $border-width--xs;
+
+  outline: none;
+  appearance: none;
+
+  @include border-radius( 0 );
+  @include font-weight( light );
+
+  @include input-placeholder {
+    color: $dark-grey;
+  };
+
+  &:valid {
+    background-color: $tint-color;
+    border-bottom-color: $tint-color;
+  }
+}
+
+body:not(.u-is-mobile) .c-form__input--reversed {
+  @include on-event() {
+    border-bottom-width: 0;
+  };
+}
+
+.c-form__input--reversed {
+  border-bottom-width: 0;
+}
+
+.c-form__text {
+  @include font-weight( light );
+}
+
+
+/**
+ *
+ * Add the `.c-form--inline` _modifier_ class to any `<form>` element to display the controls on a single row.
+ *
+ * @section Inline
+ * @sectionof Forms
+ *
+ * @example
+ * <form class="c-form c-form--inline">
+ *  <fieldset>
+ *   <div class="c-form-field">
+ *    <label for="name">Name</label>
+ *    <input type="text" class="c-form__input" id="name" placeholder="Jane Doe">
+ *   </div>
+ *   <div class="c-form-field">
+ *    <label for="email">Email</label>
+ *    <input type="email" class="c-form__input" id="email" placeholder="jane.doe@example.com">
+ *   </div>
+ *  </fieldset>
+ * </form>
+ */
+
+.c-form--inline .c-form-field,
+.c-form--inline .c-form__input,
+.c-form--inline .c-input-field {
+  vertical-align: middle;
+}
+
+.c-form--inline .c-form-field {
+  display: inline-block;
+  margin: 0;
+}
+
+.c-form--inline .c-form__input {
+  display: inline-block;
+  width: auto;
+}
+
+.c-form--inline .c-input-field {
+  display: inline-table;
+}
+
+
+/**
+ *
+ * Add the `.u-visually-hidden` _utility_ class to the `<label>` element, _do not remove labels, as it is important to accessibility that screen readers can read them_.
+ *
+ * To add an inline affix inside the input area, encapsulate the `<input>` element in a `<div>` element with the `.c-input-field` class.
+ * Then prepend and/or append a `<div>` element with the `.c-affix` class and the appropriate _modifier_ class: `c-affix--before` or `c-affix--after`.
+ *
+ * @section Hidden label
+ * @sectionof Forms
+ *
+ * @example
+ * <form class="c-form">
+ *  <fieldset>
+ *   <div class="c-form-field">
+ *    <label class="u-visually-hidden" for="name">Name</label>
+ *     <div class="c-input-field">
+ *      <div class="c-affix c-affix--before">€</div>
+ *      <input type="number" class="c-form__input" id="name" placeholder="Price">
+ *    </div>
+ *   </div>
+ *   <div class="c-form-field">
+ *    <label class="u-visually-hidden" for="name">Name</label>
+ *     <div class="c-input-field">
+ *      <input type="number" class="c-form__input" id="name" placeholder="Price">
+ *      <div class="c-affix c-affix--after">CHF</div>
+ *    </div>
+ *   </div>
+ *   <div class="c-form-field">
+ *    <label class="u-visually-hidden" for="name">Name</label>
+ *     <div class="c-input-field">
+ *      <div class="c-affix c-affix--before">€</div>
+ *      <input type="number" class="c-form__input" id="name" placeholder="Price">
+ *      <div class="c-affix c-affix--after">.00</div>
+ *    </div>
+ *   </div>
+ *  </fieldset>
+ * </form>
+ */
+
+.c-input-field {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+}
+
+.c-form--inline .c-input-field__icon {
+  width: auto;
+}
+
+.c-affix {
+  display: table-cell;
+  width: 1%;
+
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  color: $black;
+  background-color: $light-grey;
+
+  border-style: solid;
+  border-color: $black;
+  border-width: $border-width--xs;
+  border-collapse: separate;
+
+  @include font-weight( medium );
+  @include button-size($spacing-unit--xs, $spacing-unit--md, $border-radius);
+}
+
+.c-affix--sm {
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-affix--charge {
+  border-color: $mid-grey;
+  background-color: $light-grey;
+}
+
+.c-affix--btn {
+  color: #fff;
+  background-color: $brand-color;
+
+  border-style: solid;
+  border-color: $brand-color;
+  border-width: $border-width--xs;
+}
+
+.c-affix--before {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.c-affix--after {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c-input-field .c-form__input:not(:first-child) {
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.c-input-field .c-form__input:not(:last-child) {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+/**
+ *
+ * To use the `[type="checkbox"]` or `[type="radio"]` elements you need to encapsulate the `<input>` tag inside the `<label>` element. The label content must finds place directly after the `<input>` element.
+ *
+ * The container class `.c-form-field` on the `<div>` parent must be replaced with the dedicated class `.c-form__checkbox` or `.c-form__radio`.
+ *
+ * @section Checkbox & Radio
+ * @sectionof Forms
+ *
+ * @example
+ * <div class="c-form__checkbox">
+ *  <label>
+ *   <input type="checkbox" name="checkedCheckbox" id="checkedCheckbox" value="1" checked>
+ *   checked checkbox
+ *  </label>
+ * </div>
+ * <div class="c-form__checkbox">
+ *  <label>
+ *   <input type="checkbox" name="uncheckedCheckbox" id="uncheckedCheckbox" value="2">
+ *   unchecked checkbox
+ *  </label>
+ * </div>
+ *
+ * <div class="c-form__radio">
+ *  <label>
+ *   <input type="radio" name="selectedRadio" id="selectedRadio" value="1" checked>
+ *   selected radio
+ *  </label>
+ * </div>
+ * <div class="c-form__radio">
+ *  <label>
+ *   <input type="radio" name="unselectedRadio" id="unselectedRadio" value="2">
+ *   unselected radio
+ *  </label>
+ * </div>
+ */
+
+.c-form__checkbox, .c-form__radio {
+  padding-top: ( $spacing-unit--xs + $border-width--xs );
+  padding-bottom: ( $spacing-unit--xs + $border-width--xs );
+
+  vertical-align: middle;
+  white-space: nowrap;
+  border: none;
+
+  color: $text-color;
+
+  outline: none;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include font-weight( light );
+
+  &:only-child {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.c-form__bool-label {
+  position: relative;
+  display: inline-block;
+  margin-left: $spacing-unit--sm;
+
+  font-family: inherit;
+  cursor: pointer;
+  width: 100%;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-form__bool-title {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: inherit;
+}
+
+.c-form__bool-infos {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: inherit;
+
+  @include media-query( sm ) {
+    float: right;
+    line-height: normal;
+  }
+}
+
+.c-form__checkbox--custom + .c-form__bool-label:before,
+.c-form__radio--custom + .c-form__bool-label:before {
+  content: '';
+  border: 1px solid currentColor;
+
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+  width: $spacing-unit--sm;
+  height: $spacing-unit--sm;
+  margin-right: $spacing-unit--xs;
+
+  @include media-query( sm ) {
+    margin-right: $spacing-unit--md;
+  }
+}
+
+.c-form__radio--custom + .c-form__bool-label:before {
+  @include border-radius( $spacing-unit--xs );
+}
+
+.c-form__radio--custom:checked + .c-form__bool-label:before,
+.c-form__checkbox--custom:checked + .c-form__bool-label:before {
+  background-color: currentColor;
+  box-shadow: inset 0 0 0 2px $white;
+}
+
+.c-form__radio--custom:checked + .c-form__bool-label {
+  .c-form__bool-title {
+    @include font-weight( bold );
+  }
+}
+
+/**
+ *
+ * To disable an entire form, add the `disabled` attribute to the `<fieldset>` element.
+ *
+ * To disable a specific `<input>` element, add the `disabled` attribute to this element.
+ *
+ * _Note that `[type="checkbox"]` and `[type="radio"]` element also need the `.c-form__checkbox--disabled` or `.c-form__radio--disabled`
+ * modifier on their respective `.c-form__checkbox` or `.c-form__radio` container_.
+ *
+ * @section Disabled
+ * @sectionof Forms
+ *
+ * @example
+ * <form class="c-form">
+ *  <fieldset disabled>
+ *   <div class="c-form-field">
+ *    <label for="email">Email</label>
+ *    <input type="email" class="c-form__input" id="email" placeholder="jane.doe@example.com" disabled>
+ *   </div>
+ *   <div class="c-form-field">
+ *    <label class="u-visually-hidden" for="name">Name</label>
+ *     <div class="c-input-field">
+ *      <div class="c-affix c-affix--before">€</div>
+ *      <input type="number" class="c-form__input" id="name" placeholder="Price" disabled>
+ *    </div>
+ *   </div>
+ *   <div class="c-form__checkbox c-form__checkbox--disabled">
+ *    <label>
+ *     <input type="checkbox" name="disabledCheckbox" id="disabledCheckbox" value="1" disabled>
+ *      disabled checkbox
+ *    </label>
+ *   </div>
+ *   <div class="c-form__radio c-form__radio--disabled">
+ *    <label>
+ *     <input type="radio" name="disabledRadio" id="disabledRadio" value="1" disabled>
+ *      disabled radio
+ *    </label>
+ *   </div>
+ *   <button class="c-btn" type="submit" disabled>Submit</button>
+ *  </fieldset>
+ * </form>
+ */
+
+fieldset[disabled] {
+  color: $disabled-color;
+}
+
+fieldset[disabled] .c-form__input[disabled] {
+  @include on-event(self) {
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+fieldset[disabled] .c-input-field__icon {
+  color: $disabled-color;
+  background-color: $light-grey;
+}
+
+.c-form__checkbox--disabled, .c-form__radio--disabled {
+  color: $disabled-color;
+  & * {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+.c-form__checkbox input[type="checkbox"][disabled], .c-form__radio input[type="radio"][disabled]{
+  cursor: not-allowed;
+}
+
+// Errors
+
+.c-form__errors {
+  color: $negative-color;
+  display: inline-block;
+
+  width: 100%;
+  margin-bottom: $spacing-unit--sm;
+  margin-left: 0;
+
+  list-style: none;
+  text-indent: -( $spacing-unit--sm + $spacing-unit--xs );
+
+  @include font-weight( regular );
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-form__error {
+  margin-left: 17px;
+  margin-bottom: 0;
+  &:before {
+    content: "↓";
+    display: block;
+    float: left;
+    width: ( $sizer-unit--sm + $spacing-unit--xs );
+  }
+}
+

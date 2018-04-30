@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    BASE: BASE
+\*------------------------------------*/
+
+
+// --
+// Box-sizing trick
+// --
+
+// Set up a decent box model on the root element
+// and force the display of the scrollbar to avoid design jumps between pages
+html {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  font-size: $font-size--base;
+}
+
+// Make all elements from the DOM inherit from the parent box-sizing
+// Since `*` has a specificity of 0, it does not override the `html` value
+// making all elements inheriting from the root box-sizing value
+// @author Chris Coyier
+// @link https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+// --
+// Body Background
+// --
+
+body {
+  background-color: $white;
+}

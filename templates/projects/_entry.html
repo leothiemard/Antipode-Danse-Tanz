@@ -1,0 +1,216 @@
+{#
+# Projects entry template
+# -------------------
+#
+# This template gets loaded whenever a Projects entry’s URL is
+# requested.
+#
+# When this template is loaded, it will already have an ‘entry’
+# variable, set to the requested Projects entry.
+#
+#}
+
+{% extends "_layouts/site" %}
+
+{% set bodyClass = 't-projects' %}
+
+{% set title = entry.title %}
+{% set featuredMedia = entry.featuredMedia.one() %}
+
+{% block main %}
+
+<article class="l-section">
+
+	<div class="o-wrapper">
+		<div class="o-layout">
+			<div class="o-col-12@xs u-mb">
+				<a class="" href="{{ craft.app.request.referrer }}" title="Back">
+					<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					    <defs></defs>
+					    <g id="Cross" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					        <g stroke="#1D1D1B" stroke-width="4">
+					            <g transform="translate(2.000000, 2.000000)">
+					                <path d="M0,0 L36,36" id="Stroke-1"></path>
+					                <path d="M0,36 L36,0" id="Stroke-3"></path>
+					            </g>
+					        </g>
+					    </g>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="o-wrapper">
+		<div class="o-layout">
+			<figure class="o-col-12@xs">
+            	<img src="{{ featuredMedia.getUrl() }}" width="100%" height="100%" />
+            </figure>
+		</div>
+
+		<div class="o-layout">
+			<header><h1 class="c-heading--lg u-mb--lg o-col-12@xs">{{ title }}</h1></header>
+		</div>
+
+		<div class="o-layout">
+			<div class="c-lead--entry o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+            	{{ entry.descriptionFr|nl2br|raw }}
+            </div>
+            <div class="c-lead--entry o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+            	{{ entry.descriptionDe|nl2br|raw }}
+            </div>
+            <div class="c-lead--entry o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+            	{{ entry.descriptionEn|nl2br|raw }}
+            </div>
+		</div>
+
+		<div class="o-layout u-mb--xs">
+			<div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+				<small>
+					<dl class="o-list--inline">
+						{% set credits = entry.credits %}
+
+						{% for row in credits %}
+							{% if row.link | length %}
+								<dt>{{ row.function }}</dt>
+								<dd><strong><a class="u-underline" href="{{ row.link }}" target="_blank">{{ row.name }}</a></strong></dd>
+							{% else %}
+								<dt>{{ row.function }}</dt>
+								<dd><strong>{{ row.name }}</strong></dd>
+							{% endif %}
+		                {% endfor %}
+					</dl>
+				</small>
+			</div>
+		</div>
+
+		<div class="o-layout u-mb--lg">
+			<div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+				<small>Supports</small>
+			</div>
+			<div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+				<small>
+					<ul class="o-list--inline">
+						{% set supports = entry.supports %}
+
+						{% for row in supports %}
+							{% if row.link | length %}
+								<li><strong><a class="u-underline" href="{{ row.link }}" target="_blank">{{ row.name }}</a></strong></li>
+							{% else %}
+								<li><strong>{{ row.name }}</strong></li>
+							{% endif %}
+		                {% endfor %}
+					</ul>
+				</small>
+			</div>
+		</div>
+
+		<div class="o-layout">
+            <div class="c-gallery u-clearfix">
+            	{% set gallery = entry.gallery.all() %}
+
+                {% for asset in gallery %}
+                    <div class="c-gallery__item c-gallery__item--8_5 o-col-12@xs o-col-6@sm">
+                        <div class="c-gallery__img c-gallery__img">
+                            <div class="u-ratio-box">
+                                <figure class="c-gallery__fig o-asset">
+                                	<a class="u-link-block c-gallery__link" href="{{ asset.url }}" data-size="1220x{{ ( asset.height()*1220/asset.width)|round }}">
+                                		<div class="o-asset-container">
+                                    		<img src="{{ asset.getUrl() }}" data-sizes="auto" data-full-height="{{ (asset.height()*1220/asset.width)|round }}" data-full-width="1220" width="{{ asset.getWidth( 'galleryThumb' ) }}" height="{{ asset.getHeight( 'galleryThumb' ) }}" />
+                                    	</div>
+                                	</a>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+	</div>
+</article>
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+
+        <div class="pswp__container">
+
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)">&times;</button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen">□</button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            	<svg width="23px" height="40px" viewBox="0 0 23 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Cross" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Prev" transform="translate(-1.000000, 0.000000)" stroke="#ffffff" stroke-width="4">
+                                <g id="Next" transform="translate(12.000000, 20.000000) scale(-1, 1) translate(-12.000000, -20.000000) translate(2.000000, 2.000000)">
+                                    <path d="M0,0 L19.415365,19.4189393" id="Stroke-1"></path>
+                                    <path d="M0,36 L19.2353841,16.7646159" id="Stroke-3"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            	<svg width="23px" height="40px" viewBox="0 0 23 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Cross" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Next" stroke="#ffffff" stroke-width="4">
+                                <g transform="translate(2.000000, 2.000000)">
+                                    <path d="M0,0 L19.415365,19.4189393" id="Stroke-1"></path>
+                                    <path d="M0,36 L19.2353841,16.7646159" id="Stroke-3"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block foot %}
+    <script>
+        loadjs(['/js/photoswipe.min.js'], 'gallery');
+        loadjs.ready('gallery', {
+            success: function() {
+                new initPhotoSwipeFromDOM('.c-gallery');
+            }
+        });
+    </script>
+{% endblock %}

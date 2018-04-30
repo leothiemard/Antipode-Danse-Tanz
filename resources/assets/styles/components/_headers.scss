@@ -1,0 +1,139 @@
+/*------------------------------------*\
+    COMPONENTS: HEADERS
+\*------------------------------------*/
+
+
+/**
+ * Header
+ * @section
+ */
+
+// Header container
+
+.c-header {
+  width: 100%;
+}
+
+.c-header--full-vh {
+  overflow: hidden;
+  height: 100vh;
+  margin-bottom: 0;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include media-query( md ){
+    height: 100vh;
+  }
+/*
+  .c-header__img {
+    z-index: -1;
+    position:absolute;
+
+    min-height:100%;
+    min-width:100%;
+
+    max-height: none;
+    max-width: none;
+
+    height:auto;
+    width:auto;
+
+    top:-100%;
+    right:-100%;
+    bottom:-100%;
+    left:-100%;
+
+    margin:auto;
+  }
+*/
+  .c-header__video {
+    max-width: 100%;
+  }
+
+  iframe {}
+
+  .c-header__content {}
+
+  .c-header__content--flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.c-header__img--cover {
+  object-fit: cover;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.c-header__text {
+  overflow: hidden;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include media-query( sm ) {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+  }
+
+  @include media-query( md ) {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+  }
+
+  @include media-query( xl ) {
+    font-size: $font-size--base;
+    line-height: $line-height--base;
+  }
+
+  &:not(:first-child) {
+
+  }
+}
+
+.c-header__text--overlay {
+  z-index: $zindex-text-overlay;
+
+  color: #fff;
+  text-shadow: 1px 2px 0px rgba(0,0,0,.5);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.c-header__text--top {
+  position: absolute;
+  top: $nav-height;
+
+  @include media-query( md ) {
+    top: $nav-height--md;
+  }
+}
+
+.c-header__text--middle {
+  @include vertical-align( absolute );
+}
+
+.c-header__text--bottom {
+  position: absolute;
+  bottom: $nav-height;
+
+  @include media-query( md ) {
+    bottom: $nav-height--md;
+  }
+}
+
+
+// Header background image
+.c-header__img {
+  margin-bottom: $spacing-unit--md;
+
+  @include media-query( md ){
+    margin-bottom: $spacing-unit;
+  }
+}

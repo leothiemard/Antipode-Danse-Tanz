@@ -1,0 +1,56 @@
+/*------------------------------------*\
+    BASE: FLAGS
+\*------------------------------------*/
+
+
+/**
+ * Flags
+ * @section
+ */
+
+.o-flag {
+  max-width: 100%;
+  @include flexbox;
+  @include flex-wrap( wrap );
+
+  @include media-query( sm ){
+    @include flex-wrap( nowrap );
+    @include align-items( center );
+    @include justify-content( center );
+  }
+}
+
+.o-flag__left, .o-flag__right {
+  vertical-align: top;
+  &.o-flag__left--middle, &.o-flag__left--right {
+    vertical-align: middle;
+  }
+}
+
+.o-flag__left {
+  white-space: nowrap;
+  width: 100%;
+
+  @include order(2);
+
+  @include media-query( sm ){
+    width: auto;
+    padding-right: $spacing-unit;
+    @include order(1);
+
+    & > * {
+      white-space: nowrap !important;
+    }
+  }
+}
+
+.o-flag__right {
+  @include order( 1 );
+
+  @include media-query( sm ){
+    @include order( 2 );
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

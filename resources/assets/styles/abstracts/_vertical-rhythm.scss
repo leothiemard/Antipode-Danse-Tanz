@@ -1,0 +1,100 @@
+/*------------------------------------*\
+    ABSTRACTS: VERTICAL RHYTHM
+\*------------------------------------*/
+
+
+$modular-scales: (
+  'perfect-fourth': ( 4 / 3 )
+);
+
+// Calculate font sizes based on the chosen preset scale and the number of sizes.
+// Original from: http://www.modularscale.com
+@function calc-font-sizes( $scale: $modular-scale, $font-sizes: $font-sizes, $font-size-default: $font-size-default ) {
+  $size-map: 		();
+  $base-size: 	    $base-font-size;
+  $scale-factor:	map-get( $modular-scales, $scale );
+  $base-index:	    index( $font-sizes, $font-size-default );
+
+  // Calculate from the base index upwards
+  @for $i from $base-index through length( $font-sizes ) {
+    $name: nth( $font-sizes, $i );
+    $value: if( $i == $base-index, $base-size, ( $value * $scale-factor ) );
+
+    $size-map: map-merge( $size-map, ( $name: $value ) );
+  }
+
+  // When we have smaller sizes below the base:
+  @if ( $base-index - 1 > 0 ) {
+
+    // reset the value for next calculations,
+    $value: $base-size;
+
+    // and calculate the remainder from the index and down.
+    @for $i from ( $base-index - 1 ) through 1 {
+      $name: nth( $font-sizes, $i );
+      $value: ( $value / $scale-factor );
+
+      $size-map: map-merge( $size-map, ( $name: $value ) );
+    }
+  }
+
+  @return $size-map;
+}
+
+$modular-scale:					'perfect-fourth';                         // 1.333
+$font-size-default:				'sm'; // Refer to font-size index         // 1.125rem
+
+// Font-sizes
+$font-size--base:				1.125rem;   //18px
+$font-size--xxs:				0.875rem;   //14px
+$font-size--xs:					1rem;       //16px
+$font-size--sm:				    1.5rem;     //24px
+$font-size--md:				    2.25rem;    //36px
+$font-size--lg:					3rem;       //48px
+$font-size--xl:					4.5rem;     //72px
+$font-size--xxl:				6rem;       //96px
+$font-size--broad:			    7rem;       //112px
+
+// Line-height
+$line-height--base:				1.5rem;     //24px
+$line-height--xxs:				1.125rem;   //18px
+$line-height--xs:				1.25rem;    //20px
+$line-height--sm:				1.875rem;   //30px
+$line-height--md:				2.625rem;   //42px
+$line-height--lg:				3.375rem;   //54px
+$line-height--xl:				4.875rem;   //78px
+$line-height--xxl:				6.375rem;   //102px
+$line-height--broad:			7rem;       //112px
+
+// Letter-spacing
+$letter-spacing--md:			-0.0875rem;   // -1.4px used for 36px
+$letter-spacing--lg:			-0.11625rem;  // -1.86px used for 48px
+$letter-spacing--xl:			-0.24rem;     // -1.4px used for 72px
+$letter-spacing--xxl:			-0.24rem;     // -3.84px used for 96px
+$letter-spacing--broad:			-0.28rem;     // -4.48px used for 112px
+
+// Specific font-size / line-height ratio for optimal readability
+$font-size-readability--xs:     1rem;       //16px
+$font-size-readability--sm:     1.125rem;   //18px
+$font-size-readability:         1.3125rem;  //21px
+
+$line-height-readability--xs:   1.25rem;    //20px
+$line-height-readability--sm:   1.5rem;     //24px
+$line-height-readability:       1.6875rem;  //27px
+
+@mixin v-rhythm( $font-size: $base-font-size, $line-height:"", $letter-spacing:"" ) {
+
+  font-size: $font-size;
+
+  // letter-spacing: inherit;
+  @if ( $line-height != "" ) {
+    line-height: $line-height;
+  } @else {
+    line-height: $font-size * ( 4 / 3 );
+  }
+  /*
+  @if ( $letter-spacing != "" ) {
+    letter-spacing: $letter-spacing;
+  }
+ */
+}

@@ -1,0 +1,119 @@
+/*------------------------------------*\
+    BASE: CAROUSELS
+\*------------------------------------*/
+
+.c-carousel {
+	overflow: visible;
+	height: 100%;
+}
+
+.c-carousel__container {
+	height: 200px;
+	position: relative;
+	@include media-query(sm) {
+		height: 600px;
+		position: relative;
+		margin-bottom: $spacing-unit;
+	}
+}
+
+body:not(.u-is-mobile) .c-carousel__item {
+	@include on-event() {
+		.c-carousel__title {
+			opacity: 1;
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+}
+
+.c-carousel__item {
+	overflow: hidden;
+	height: 200px;
+	color: $white;
+	position: relative;
+
+	@include media-query(sm) {
+		height: 600px;
+	}
+
+	figure {
+    img {
+      position: relative;
+      // @include vertical-align(absolute);
+    }
+  }
+}
+
+.c-carousel__img {
+	position: relative;
+	align-self: end;
+
+	img {
+		width: 100%;
+		min-height: 100%;
+		margin-bottom: 0;
+		object-fit: cover;
+	}
+}
+
+.c-carousel__title {
+  opacity: 0;
+
+  z-index: 2;
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  margin-left: $spacing-unit--xs;
+
+  transform: translateY(-50%);
+
+  width: calc( 100% - ( 2 * #{$spacing-unit--xs}) );
+
+  color: inherit;
+
+  text-align: center;
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-carousel__prev, .c-carousel__next {
+	z-index:2;
+	position: absolute;
+	height: 100%;
+	width: 23px;
+	background: transparent;
+
+	top: 0;
+
+	border: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    outline: none;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+}
+
+.c-carousel__prev {
+	left: $spacing-unit--sm;
+}
+
+.c-carousel__next {
+	right: $spacing-unit--sm;
+}
+

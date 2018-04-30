@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    BASE: IMAGES
+\*------------------------------------*/
+
+img {
+  max-width: 100%;
+  font-style: normal;
+  vertical-align: middle;
+  margin-bottom: $spacing-unit;
+
+  transition: filter 300ms;
+}
+
+.o-img--cover {
+  width: 100%;
+  min-height: 100%;
+  margin-bottom: 0;
+  object-fit: cover;
+}

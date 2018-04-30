@@ -1,0 +1,66 @@
+/*------------------------------------*\
+    COMPONENTS: HEADINGS
+\*------------------------------------*/
+
+
+/**
+ * A generic heading style which can be applied to any headings
+ */
+
+.c-heading {
+  font-size: $font-size--md;
+  line-height: $line-height--md;
+
+  @include font-weight( bold );
+}
+
+.c-heading--alt {
+  font-size: $font-size--md;
+  line-height: $line-height--sm;
+
+  @include font-weight( bold );
+}
+
+.c-heading--lg {
+  font-size: $font-size--lg;
+  line-height: $line-height--lg;
+
+  @include font-weight( bold );
+}
+
+.c-heading--sm {
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include font-weight( regular );
+}
+
+.c-heading--overlined {
+  padding-top: $spacing-unit;
+
+  border-top-style: solid;
+  border-top-color: currentColor;
+  border-top-width: $border-width;
+}
+
+.c-heading--underlined {
+
+  border-bottom-style: solid;
+  border-bottom-color: currentColor;
+  border-bottom-width: $border-width--md;
+}
+
+.c-heading__sub {
+  @include font-weight( light );
+}
+
+.c-heading__sup {
+  @include font-weight( light );
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+}
+
+.c-heading__link {
+  padding-top: $gh;
+}

@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    LAYOUT: FEEDS
+\*------------------------------------*/
+
+.l-feed {
+  padding-top: $spacing-unit--md;
+  margin-bottom: $spacing-unit;
+}
+
+.l-feed--list {
+	@include font-weight(medium);
+}
+
+.l-feed--list__item {
+	margin-bottom: $spacing-unit--xs;
+	@include media-query(sm) {
+		margin-bottom: 0;
+	}
+}

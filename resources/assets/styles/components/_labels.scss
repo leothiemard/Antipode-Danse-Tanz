@@ -1,0 +1,91 @@
+/*------------------------------------*\
+  COMPONENTS: LABEL
+\*------------------------------------*/
+
+
+/**
+ * Label
+ * @section
+ */
+
+.c-label {
+  display: inline-block;
+
+  color: #fff;
+  background-color: $label-color-dark;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include font-weight( medium );
+  @include button-size( $spacing-unit--sm, $spacing-unit--sm, $border-radius--sm );
+
+  img {
+    margin-bottom: 0;
+  }
+}
+
+.c-label--inlined {
+  display: inline;
+
+  margin-left: $spacing-unit--sm;
+
+  line-height: inherit;
+  vertical-align: top;
+
+  @include button-size( ( $spacing-unit--xs / 2 ) - $border-width--xs, $spacing-unit--sm - $border-width, $border-radius--sm );
+}
+
+.c-label--left, .c-label--right {
+  position: absolute;
+  bottom: $spacing-unit--sm;
+}
+
+.c-label--left {
+  left: $spacing-unit--sm;
+}
+
+.c-label--right {
+  right: $spacing-unit--sm;
+}
+
+.c-label--light {
+  background-color: $label-color-light;
+}
+
+.c-label--sm {
+  @include button-size( ( $spacing-unit--xs / 2 ), $spacing-unit--sm, $border-radius--sm );
+}
+
+.c-label--positive {
+  color: $text-color;
+  background-color: $positive-color;
+}
+
+.c-label--outline {
+  color: $brand-color;
+  background-color: transparent;
+
+  border-style: solid;
+  border-color: $brand-color;
+  border-width: 1px;
+
+  @include font-weight( regular )
+}
+
+.c-label--text {
+  min-width: $sizer-unit--lg;
+  height: $sizer-unit--lg;
+
+  color: $text-color;
+  background-color: transparent;
+
+  font-size: $font-size--base;
+  line-height: $line-height--base;
+
+  @include button-size( $spacing-unit--sm, $spacing-unit--sm, $border-radius--sm );
+}
+
+.c-label__text {
+  vertical-align: middle;
+}

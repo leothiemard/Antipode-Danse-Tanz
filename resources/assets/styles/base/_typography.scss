@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    BASE: TYPOGRAPHY
+\*------------------------------------*/
+
+// Basic style for all body text
+body {
+  font-family: 'Made Evolve Sans', sans-serif;
+  color: $text-color;
+
+  @include font-weight( regular );
+  @include font-smoothing( on );
+}
+
+.fonts-loaded body {
+  font-family: 'Made Evolve Sans', sans-serif;
+}

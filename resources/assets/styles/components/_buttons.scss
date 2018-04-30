@@ -1,0 +1,355 @@
+/*------------------------------------*\
+  COMPONENTS: BUTTONS
+\*------------------------------------*/
+
+
+/**
+ * Buttons
+ * @section
+ */
+
+
+/**
+ *
+ * The `.c-btn` classes can be used on `<button>` and `<input>` elements that trigger actions in forms, dialogs or others.
+ *
+ * It can also be used on `<a>` elements that trigger in-page functionality. _Note that these links need a `role="button"` as attribute._
+ *
+ * The class `.c-btn` without the `--secondary` _modifier_ is referred to as the primary action in its context.
+ *
+ * @section Tags
+ * @sectionof Buttons
+ *
+ * @example
+ * <button class="c-btn" type="button">Button</button>
+ * <input class="c-btn" type="button" value="Input">
+ * <input class="c-btn" type="submit" value="Submit">
+ * <a href="#" class="c-btn" role="button">Link</a>
+ */
+
+body:not(.u-is-mobile) .c-btn {
+  @include on-event {
+    text-decoration: none;
+    color: $white;
+    background-color: darken( $brand-color, 10% );
+  }
+}
+
+.c-btn {
+  display: inline-block;
+  width: 100%;
+  padding: $spacing-unit--md $spacing-unit--sm;
+  margin-right: $spacing-unit--sm;
+  margin-bottom: $spacing-unit--sm;
+
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+
+  text-align: center;
+  vertical-align: middle;
+  white-space: normal;
+  border: none;
+
+  color: $white;
+  background-color: $black;
+
+  cursor: pointer;
+  user-select: none;
+
+  @include font-weight( medium );
+  @include border-radius( $border-radius );
+
+  &:only-of-type {
+    margin-bottom: 0;
+  }
+}
+
+body:not(.u-is-mobile) .c-btn--light {
+  @include on-event {
+    color: $brand-color;
+    background-color: darken( $white, 10% );
+  }
+}
+
+.c-btn--light {
+  color: $brand-color;
+  background-color: $white;
+}
+
+
+/**
+ *
+ * Use the `--secondary` _modifier_ to give less emphasis to an element or to differentiate two actions in the same context.
+ *
+ * @section Alternative
+ * @sectionof Buttons
+ *
+ * @example
+ * <button class="c-btn c-btn--secondary" type="button">Button</button>
+ * <input class="c-btn c-btn--secondary" type="button" value="Input">
+ * <input class="c-btn c-btn--secondary" type="submit" value="Submit">
+ * <a href="#" class="c-btn c-btn--secondary" role="button">Link</a>
+ */
+
+body:not(.u-is-mobile) .c-btn--primary {
+  @include on-event {
+    background-color: darken($brand-color, 10%);
+    border-color: darken($brand-color, 10%);
+  }
+}
+
+.c-btn--primary {
+  color: $white;
+  background-color: $brand-color;
+}
+
+body:not(.u-is-mobile) .c-btn--secondary {
+  @include on-event {
+    background: none;
+    color: darken($brand-color, 10%);
+    border-color: darken($brand-color, 10%);
+  }
+}
+
+.c-btn--secondary {
+  color: $brand-color;
+  background: none;
+}
+
+body:not(.u-is-mobile) .c-btn--secondary-light {
+  @include on-event {
+    background: none;
+    color: darken($white, 10%);
+    border-color: darken($white, 10%);
+  }
+}
+
+.c-btn--secondary-light {
+  color: $white;
+  background: none;
+  border-color: $white;
+}
+
+body:not(.u-is-mobile) .c-btn--link {
+  @include on-event {
+    color: $brand-color;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+}
+
+.c-btn--link {
+  padding: 0;
+
+  color: $brand-color;
+  background-color: transparent;
+  text-decoration: none;
+
+  vertical-align: bottom;
+}
+
+body:not(.u-is-mobile) .c-btn--link-secondary {
+  @include on-event {
+    color: $text-color;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+}
+
+.c-btn--link-secondary {
+  color: $text-color;
+}
+
+
+/**
+ *
+ * These states give feedback to the users as they interact with the interface.
+ *
+ * Use the `--positive` _modifier_ to let the users know they did good. It is possible to use this _modifier_ as a way to emphasize a specific action on a page.
+ * Use the `--warning` _modifier_ to brought attention on something that may be wrong or may interfere with the users experience.
+ * Use the `--negative` _modifier_ only if something is wrong and require the attention or the action of the users.
+ *
+ * @section States
+ * @sectionof Buttons
+ *
+ * @example
+ * <button class="c-btn c-btn--positive" type="button">Positive</button>
+ * <button class="c-btn c-btn--warning" type="button">Warning</button>
+ * <button class="c-btn c-btn--negative" type="button">Negative</button>
+ * <button class="c-btn c-btn--secondary c-btn--positive" type="button">Positive</button>
+ * <button class="c-btn c-btn--secondary c-btn--warning" type="button">Warning</button>
+ * <button class="c-btn c-btn--secondary c-btn--negative" type="button">Negative</button>
+ */
+
+.c-btn--positive {
+  @include on-event(self) {
+    background-color: $positive-color;
+  }
+
+  &.c-btn--secondary {
+    @include on-event(self) {
+      background: none;
+      color: $positive-color;
+    }
+  }
+}
+
+.c-btn--warning {
+  @include on-event(self) {
+    background-color: $warning-color;
+  }
+
+  &.c-btn--secondary {
+    @include on-event(self) {
+      background: none;
+      color: $warning-color;
+    }
+  }
+}
+
+.c-btn--negative {
+  @include on-event(self) {
+    background-color: $negative-color;
+  }
+
+  &.c-btn--secondary {
+    @include on-event(self) {
+      background: none;
+      color: $negative-color;
+    }
+  }
+}
+
+
+/**
+ *
+ * To disable any `<button>` or `<input>`, simply use the `disabled` boolean attribute.
+ *
+ * You have to use the specific class `.c-btn--disabled` to make `<a>` elements inactive.
+ * _Note that the attribute `cursor: not-allowed` does not work on links_.
+ *
+ * @section Disabled state
+ * @sectionof Buttons
+ *
+ * @example
+ * <button class="c-btn" type="button" disabled>Button</button>
+ * <input class="c-btn" type="button" value="Input" disabled>
+ * <a href="#" class="c-btn c-btn--disabled" role="button">Link</a>
+ * <button class="c-btn c-btn--secondary" type="button" disabled>Button</button>
+ * <input class="c-btn c-btn--secondary" type="button" value="Input" disabled>
+ * <a href="#" class="c-btn c-btn--secondary c-btn--disabled" role="button">Link</a>
+ */
+
+body:not(.u-is-mobile) .c-btn--disabled, .c-btn[disabled] {
+  pointer-events: none;
+  @include on-event(self) {
+    background-color: $disabled-color !important;
+    color: $light-grey !important;
+  }
+}
+
+.c-btn--disabled, .c-btn[disabled] {
+  pointer-events: none;
+  @include on-event(self) {
+    background-color: $disabled-color;
+    color: $light-grey;
+  }
+
+  &.c-btn--secondary {
+    @include on-event(self) {
+      background: none;
+      color: $disabled-color;
+    }
+  }
+}
+
+.c-btn--disabled {
+  pointer-events: none;
+}
+
+.c-btn[disabled] {
+  cursor: not-allowed;
+}
+
+
+/**
+ *
+ * Use the `--lg` _modifier_ to any `<button>`, `<input>` or `<a>` elements to display a larger size.
+ *
+ * @section Large
+ * @sectionof Buttons
+ *
+ * @example
+ * <button class="c-btn c-btn--lg" type="button">Large button</button>
+ * <button class="c-btn c-btn--lg c-btn--secondary" type="button">Large button</button>
+ *
+ */
+
+.c-btn--lg {
+  font-size: $font-size--md;
+  line-height: $line-height--md;
+
+  @include button-size( calc( #{$spacing-unit--sm} - (#{$border-width} / 2) ), calc(#{$spacing-unit--md} - (#{$border-width} / 2)), $border-radius--lg );
+}
+
+
+/**
+ *
+ * Use the `--sm` _modifier_ to any `<button>`, `<input>` or `<a>` elements to display a smaller size.
+ *
+ * @section Small
+ * @sectionof Buttons
+ *
+ * @example
+ * <button class="c-btn c-btn--sm" type="button">Small button</button>
+ * <button class="c-btn c-btn--sm c-btn--secondary" type="button">Small button</button>
+ */
+
+.c-btn--sm {
+  border-width: $border-width--xs;
+
+  font-size: $font-size--xs;
+  line-height: $line-height--xs;
+
+  @include button-size( $spacing-unit--sm - ( $border-width / 2 ), $spacing-unit--sm - ( $border-width / 2 ), $border-radius );
+}
+
+/**
+ *
+ * Social buttons
+ *
+ */
+
+body:not(.u-is-mobile) .c-btn--social {
+  &[data-provider='facebook'] {
+    @include on-event() {
+      background-color: darken(#3b5998, 10%);
+    }
+  }
+  &[data-provider='twitter'] {
+    @include on-event() {
+      background-color: darken( #1da1f2, 10% );
+    }
+  }
+}
+
+.c-btn--social {
+  &[data-provider='facebook'] {
+    color: white;
+    background-color: #3b5998; // Static facebook brand color
+    @include on-event(){
+      background-color: darken( #3b5998, 10% );
+    }
+  }
+
+  &[data-provider='twitter'] {
+    color: white;
+    background-color: #1da1f2; // Static Twitter brand color
+
+    @include on-event(){
+      background-color: darken( #1da1f2, 10% );
+    }
+  }
+
+}
+

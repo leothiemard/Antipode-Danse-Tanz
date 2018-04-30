@@ -1,0 +1,30 @@
+{#
+ # Projects index template
+ # -------------------
+ #
+ # This template is loaded whenever http://example.com/projects is
+ # requested.
+ #
+ #}
+
+{% extends "_layouts/site" %}
+
+{% set title = "Projets" %}
+
+{% set entries = craft.entries().section('projects').all() %}
+
+{% block main %}
+
+    <section class="l-section">
+        <div class="o-wrapper">
+            <div class="l-feed">
+                <div class="o-layout">
+                    {% for entry in entries %}
+                        {% include "projects/_components/card"  %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

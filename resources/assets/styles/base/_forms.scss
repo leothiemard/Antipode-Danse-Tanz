@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    BASE: FORMS
+\*------------------------------------*/
+
+input,
+textarea,
+select {
+  @include input-autocomplete {
+    // Set up autocomplete styles for webkit browsers
+    background-color: $tint-color;
+    border-bottom-color: $tint-color;
+
+    -webkit-text-fill-color: $black;
+    -webkit-box-shadow: 0 0 0 1000px $tint-color inset;
+  }
+}

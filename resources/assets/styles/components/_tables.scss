@@ -1,0 +1,33 @@
+/*------------------------------------*\
+  COMPONENTS: TABLES
+\*------------------------------------*/
+
+
+/**
+ * Tables
+ * @section
+ */
+
+.c-table {
+  display: flex;
+  flex-wrap: wrap;
+
+  color: $white;
+}
+
+.c-table__line {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.c-table__cell {
+  word-break: break-all;
+  word-break: break-word;
+  hyphens: auto;
+
+  padding-bottom: $spacing-unit--sm;
+}
+
+.c-table__term {
+  @include font-weight( medium );
+}

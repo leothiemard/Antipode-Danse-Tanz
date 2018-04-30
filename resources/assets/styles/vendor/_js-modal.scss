@@ -1,0 +1,29 @@
+/*------------------------------------*\
+    VENDOR: JS MODAL
+\*------------------------------------*/
+
+.js-modal {
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility $transition-time linear, opacity $transition-time linear;
+}
+
+.js-modal--open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.js-modal__target {
+  @include vertical-align( absolute );
+
+  transform: translate3d(0, -40%, 0);
+  opacity: 0;
+
+  transition: transform $transition-time ( $transition-time / 2 ), opacity $transition-time ( $transition-time / 2 );
+}
+
+.js-modal__target--open {
+  transform: translate3d(0, -50%, 0);
+  opacity: 1;
+}

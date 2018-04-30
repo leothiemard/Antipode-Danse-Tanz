@@ -1,0 +1,65 @@
+/*------------------------------------*\
+  BASE: LISTS
+\*------------------------------------*/
+
+
+/**
+ * Lists
+ * @section
+ */
+
+// Unordered and Ordered lists
+ul,
+ol,
+dl {
+  ul,
+  ol,
+  dl {
+    margin-bottom: 0;
+  }
+  li,
+  dt, dd{
+    margin: 0;
+  }
+}
+
+.o-list {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+
+  .o-list__item {
+    margin-left: $spacing-unit;
+    @include media-query(sm) {
+      margin-left: $spacing-unit--lg;
+    }
+  }
+
+  li,
+  dt, dd {
+    margin-left: 0;
+  }
+}
+
+.o-list--inline {
+  display: inline-block;
+  padding-left: 0;
+  list-style: none;
+
+  &.o-list--inline-underlined {
+    border-bottom: 1px solid $black;
+    padding-bottom: $spacing-unit--xs;
+    @include media-query(sm) {
+        margin-bottom: $spacing-unit--xxs;
+    }
+  }
+
+  li, ol {
+    display: inline-block;
+  }
+
+  dt, dd {
+    display: inline-block;
+  }
+}
+
