@@ -13,8 +13,6 @@
 
 {% set title = "Contact" %}
 
-{% set entries = craft.entries.section('contact') %}
-
 {% block main %}
 
     <section class="l-section">
@@ -29,60 +27,54 @@
                 </div>
         		<div class="o-col-12@xs o-col-4@sm">
         			<address class="u-mt">
-						Antipode Studio<br>
-						fonderie 8
+                        {{ entry.studioAddress|nl2br }}
 					</address>
 					<hr class="u-separator">
 					<address>
-						Antipode Danse Tanz<br>
-						Place de la Gare 1 | CP 1014<br>
-						CH – 1701 Fribourg<br>
-						<a class="u-underline" href="mailto:info@antipodedansetanz.ch">info@antipodedansetanz.ch</a><br>
+                        {{ entry.postalBox|nl2br }}
+						<a class="u-underline" href="{{ entry.studioEmail }}">{{ entry.studioEmail }}</a><br>
 					</address>
         		</div>
         	</div>
         	<hr class="u-separator">
         	<div class="o-layout">
-        		<div class="o-col-12@xs o-col-4@sm">
-        			<h2 class="c-category">Direction Artistique</h2>
-    				<h1 class="c-heading--sm">Nicole Morel</h1>
-    				<a class="u-underline" href="mailto:n.morel@antipodedansetanz.ch">n.morel@antipodedansetanz.ch</a>
-        		</div>
-        		<div class="o-col-12@xs o-col-4@sm">
-        			<h2 class="c-category">Direction administrative</h2>
-    				<h1 class="c-heading--sm">Juan Diaz</h1>
-    				<a class="u-underline" href="mailto:n.morel@antipodedansetanz.ch">j.diaz@antipodedansetanz.ch</a>
-        		</div>
-        		<div class="o-col-12@xs o-col-4@sm">
-        			<h2 class="c-category">Dramaturgie / Booking</h2>
-    				<h1 class="c-heading--sm">Ulrike Wörner</h1>
-    				<a class="u-underline" href="mailto:n.morel@antipodedansetanz.ch">u.worner@antipodedansetanz.ch</a>
-        		</div>
-    		</div>
+
+                {% set people = entry.teamMember.all() %}
+
+                {% for entry in people %}
+                    <div class="o-col-12@xs o-col-4@sm">
+                        <h2 class="c-category">{{ entry.function }}</h2>
+                        <h1 class="c-heading--sm">{{ entry.title }}</h1>
+                        <a class="u-underline" href="{{ entry.email }}">{{ entry.email }}</a>
+                    </div>
+                {% endfor %}
+
+            </div>
+
 			<hr class="u-separator">
     		<div class="o-layout u-mb--xl">
         		<div class="o-col-12@xs o-col-6@sm">
         			<h2 class="c-category u-mb--sm">Association</h2>
-					<ul class="o-list u-mb--sm">
-						<li class="o-list__item">Présidente</li>
-						<li class="o-list__item"><a class="u-underline" mailto="mailto:v.pochon@antipodedansetanz.ch">Valentine Pochon</a></li>
-						<li class="o-list__item">Trésorier</li>
-						<li class="o-list__item"><a class="u-underline" mailto="mailto:d.cagnazzoantipodedansetanz.ch">Danilo Cagnazzo</a></li>
-						<li class="o-list__item">Membre</li>
-						<li class="o-list__item"><a class="u-underline" mailto="mailto:m.georgiou@antipodedansetanz.ch">Mélanie Georgiou</a></li>
-					</ul>
+
+                    {% set association = entry.associationMembers.all() %}
+
+                    <ul class="o-list u-mb--sm">
+                    {% for entry in association %}
+                        <li class="o-list__item">{{ entry.function }}</li>
+                        <li class="o-list__item"><a class="u-underline" mailto="{{ entry.email }}">{{ entry.title }}</a></li>
+                    {% endfor %}
+                    </ul>
+
         		</div>
 
         		<div class="o-col-12@xs o-col-6@sm">
         			<h2 class="c-category u-mb--sm">Soutiens principaux</h2>
+
+                    {% set supporters = entry.mainSupporters.all() %}
     				<ul class="o-list u-mb--sm">
-						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Etat de Fribourg</a></li>
-						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Loterie Romande</a></li>
-						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Agglomération de Fribourg</a></li>
-						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Pro Helvetia</a></li>
-						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Fondation Ernst Göhner</a></li>
-						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Fondation Anne-Marie Schindler</a></li>
-						<li class="o-list__item"><a class="u-underline" href="https://www.google.com" target="_blank">Fondation Suisse des Artistes Interprètes SIS</a></li>
+                        {% for entry in supporters %}
+                            <li class="o-list__item"><a class="u-underline" href="{{ entry.link }}" target="_blank">{{ entry.title }}</a></li>
+                        {% endfor %}
 					</ul>
         		</div>
     		</div>
