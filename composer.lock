@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "686822c95754f0038cfc37efc5a8b4c6",
+    "content-hash": "1963e3e1dd6c90ce46a20ab3ecde9cb4",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -674,6 +674,84 @@
             "time": "2018-03-13T14:29:14+00:00"
         },
         {
+            "name": "dukt/oauth2-google",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dukt/oauth2-google/zipball/610ea5e1f7e5197778cb80ea4942c20dfdc1bc79",
+                "reference": "610ea5e1f7e5197778cb80ea4942c20dfdc1bc79",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-google": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dukt\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin David",
+                    "email": "ben@dukt.net",
+                    "homepage": "https://dukt.net"
+                }
+            ],
+            "description": "Google OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "client",
+                "google",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2017-03-24T14:45:00+00:00"
+        },
+        {
+            "name": "dukt/oauth2-vimeo",
+            "version": "2.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dukt/oauth2-vimeo/zipball/a87f622a07b425abeafab2e9dd202dc00eaf7441",
+                "reference": "a87f622a07b425abeafab2e9dd202dc00eaf7441",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dukt\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin David",
+                    "email": "ben@dukt.net",
+                    "homepage": "https://github.com/benjamindavid"
+                }
+            ],
+            "description": "Vimeo OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "authorisation",
+                "authorization",
+                "client",
+                "oauth",
+                "oauth2",
+                "vimeo"
+            ],
+            "time": "2018-04-27T13:55:02+00:00"
+        },
+        {
             "name": "egulias/email-validator",
             "version": "2.1.4",
             "dist": {
@@ -751,6 +829,49 @@
                 "php-emoji"
             ],
             "time": "2017-10-09T01:54:36+00:00"
+        },
+        {
+            "name": "embed/embed",
+            "version": "v3.3.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/038265bc1169f29ef5e19b7210eff1f223c66b0b",
+                "reference": "038265bc1169f29ef5e19b7210eff1f223c66b0b",
+                "shasum": ""
+            },
+            "require": {
+                "composer/ca-bundle": "^1.0",
+                "ext-curl": "*",
+                "ext-mbstring": "*",
+                "php": "^5.5|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Embed\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oscar Otero",
+                    "email": "oom@oscarotero.com",
+                    "homepage": "http://oscarotero.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP library to retrieve page info using oembed, opengraph, etc",
+            "homepage": "https://github.com/oscarotero/Embed",
+            "keywords": [
+                "embed",
+                "embedly",
+                "oembed",
+                "opengraph",
+                "twitter cards"
+            ],
+            "time": "2018-02-24T11:23:18+00:00"
         },
         {
             "name": "enshrined/svg-sanitize",
@@ -1195,6 +1316,45 @@
             "time": "2017-04-25T14:43:14+00:00"
         },
         {
+            "name": "league/oauth2-google",
+            "version": "2.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-google/zipball/c0faed29ec6d665ce3234e01f62029516cee4c02",
+                "reference": "c0faed29ec6d665ce3234e01f62029516cee4c02",
+                "shasum": ""
+            },
+            "require": {
+                "league/oauth2-client": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\OAuth2\\Client\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Woody Gilk",
+                    "email": "woody.gilk@gmail.com",
+                    "homepage": "http://shadowhand.me"
+                }
+            ],
+            "description": "Google OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+            "keywords": [
+                "Authentication",
+                "authorization",
+                "client",
+                "google",
+                "oauth",
+                "oauth2"
+            ],
+            "time": "2018-03-19T17:28:55+00:00"
+        },
+        {
             "name": "mikehaertl/php-shellcommand",
             "version": "1.2.5",
             "dist": {
@@ -1224,6 +1384,57 @@
                 "shell"
             ],
             "time": "2017-06-30T06:21:01+00:00"
+        },
+        {
+            "name": "mikestecker/craft-videoembedder",
+            "version": "1.0.9",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mikestecker/craft-videoembedder/zipball/59ddb17df8f9473f0f7955e330b727c835b66b01",
+                "reference": "59ddb17df8f9473f0f7955e330b727c835b66b01",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0",
+                "embed/embed": "^3.3"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Video Embedder",
+                "handle": "video-embedder",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/mikestecker/craft-videoembedder/v1/CHANGELOG.md",
+                "class": "mikestecker\\videoembedder\\VideoEmbedder"
+            },
+            "autoload": {
+                "psr-4": {
+                    "mikestecker\\videoembedder\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Stecker",
+                    "homepage": "http://github.com/mikestecker"
+                }
+            ],
+            "description": "Craft plugin to generate an embed URL from a YouTube or Vimeo URL.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "video embedder"
+            ],
+            "support": {
+                "docs": "https://github.com/mikestecker/craft-videoembedder/blob/v1/README.md",
+                "issues": "https://github.com/mikestecker/craft-videoembedder/issues"
+            },
+            "time": "2018-04-12T19:07:27+00:00"
         },
         {
             "name": "paragonie/random_compat",

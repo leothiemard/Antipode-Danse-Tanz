@@ -5502,9 +5502,36 @@ body:not(.u-is-mobile) .u-link-sub:hover, body:not(.u-is-mobile) .u-link-sub:act
 .u-display-inline {
   display: inline; }
 
-/*.u-ratio-box {
-  padding-bottom: 100%;
-}*/
+.u-ratio-16-9,
+.u-ratio-16-10,
+.u-ratio-square {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 0; }
+
+.u-ratio-16-9 {
+  padding-top: 56.25%;
+  /* This is your aspect-ratio */ }
+
+.u-ratio-16-10 {
+  padding-top: 62.5%;
+  /* This is your aspect-ratio */ }
+
+.u-ratio-square {
+  padding-top: 100%;
+  /* This is your aspect-ratio */ }
+
+.u-ratio-inner {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%; }
+
 @media print {
   .u-print--hidden, .u-print--hidden * {
     display: none !important; } }

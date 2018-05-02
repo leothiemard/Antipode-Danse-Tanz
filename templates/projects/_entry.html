@@ -15,7 +15,6 @@
 {% set bodyClass = 't-projects' %}
 
 {% set title = entry.title %}
-{% set featuredMedia = entry.featuredMedia.one() %}
 
 {% block main %}
 
@@ -43,9 +42,37 @@
 
 	<div class="o-wrapper">
 		<div class="o-layout">
-			<figure class="o-col-12@xs">
-            	<img src="{{ featuredMedia.getUrl() }}" width="100%" height="100%" />
-            </figure>
+			<div class="o-col-12@xs">
+                {% set featuredMedia = entry.featuredMedia.all()  %}
+
+                {% for block in featuredMedia %}
+                        {% if block.type == "featuredImage" %}
+                            {% set image = block.image.one() %}
+                            {% if image %}
+                            <figure>
+                                <img src="{{ image.getUrl() }}" width="100%" height="100%" />
+                            </figure>
+                            {% endif %}
+                        {% elseif block.type == "featuredVideo" %}
+
+                            {% set video = block.video.one() %}
+                            <video width="100%" height="100%" id="js-videoAssets" controls>
+                                <source src="{{ video.url }}" type="{{ video.getMimeType() }}">
+                            </video>
+                        {% elseif block.type == "featuredEmbedding" %}
+
+                            {% set videoUrl = block.embed %}
+                            {% set embed = craft.videoEmbedder.getEmbedUrl(videoUrl) %}
+
+                            {% if embed | length %}
+                                <div class="u-ratio-16-9">
+                                    <iframe class="u-ratio-inner" src="{{ embed }}"></iframe>
+                                </div>
+                            {% endif %}
+                        {% endif  %}
+                {% endfor %}
+
+            </div>
 		</div>
 
 		<div class="o-layout">
@@ -212,5 +239,5 @@
                 new initPhotoSwipeFromDOM('.c-gallery');
             }
         });
-    </script>
+</script>
 {% endblock %}
