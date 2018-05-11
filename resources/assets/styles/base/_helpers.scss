@@ -216,6 +216,14 @@ body:not(.u-is-mobile) .u-link-sub {
 
 // Small text descriptions
 
+.u-light {
+  @include font-weight( light );
+}
+
+.u-regular {
+  @include font-weight( regular );
+}
+
 .u-small {
   color: $black;
   @include font-weight( light );

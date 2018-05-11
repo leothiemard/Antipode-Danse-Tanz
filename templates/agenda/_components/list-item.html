@@ -1,9 +1,9 @@
 <div class="o-layout">
 	<ul class="o-list--inline o-list--inline-underlined u-w100">
 		<a href="{{ entry.eventLink }}" target="_blank">
-			<li class="o-col-12@xs o-col-3@sm">{{ entry.eventDate | date("j.m.Y H:i") }}</li>
-			<li class="o-col-12@xs o-col-6@sm">{{ entry.title }}</li>
-			<li class="o-col-12@xs o-col-3@sm u-text-right@sm">{{ entry.location }}</li>
+			<li class="o-col-12@xs o-col-2@sm">{{ entry.eventDate | date("jj.m.Y H:i") }}</li>
+			<li class="o-col-12@xs o-col-4@sm">{{ entry.title }}</li>
+			<li class="o-col-12@xs o-col-6@sm u-text-right">{{ entry.location }}</li>
 		</a>
 	</ul>
 </div>

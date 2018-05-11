@@ -42,7 +42,7 @@
 
 	<div class="o-wrapper">
 		<div class="o-layout">
-			<div class="o-col-12@xs">
+			<div class="o-col-12@xs u-mb">
                 {% set featuredMedia = entry.featuredMedia.all()  %}
 
                 {% for block in featuredMedia %}
@@ -63,10 +63,16 @@
 
                             {% set videoUrl = block.embed %}
                             {% set embed = craft.videoEmbedder.getEmbedUrl(videoUrl) %}
+                            {% set provider = craft.videoEmbedder.getProviderName(videoUrl) %}
+                            {% set youtubeParams = "?autoplay=0&showinfo=0&controls=0" %}
 
                             {% if embed | length %}
                                 <div class="u-ratio-16-9">
-                                    <iframe class="u-ratio-inner" src="{{ embed }}"></iframe>
+                                    {% if provider == "Vimeo" %}
+                                        <iframe class="u-ratio-inner" src="{{ embed }}" data-provider="{{ provider }}" frameborder="0" allowfullscreen></iframe>
+                                    {% else %}
+                                        <iframe class="u-ratio-inner" src="{{ embed }}{{ youtubeParams }}" data-provider="{{ provider }}" frameborder="0" allowfullscreen></iframe>
+                                    {% endif %}
                                 </div>
                             {% endif %}
                         {% endif  %}
@@ -76,7 +82,7 @@
 		</div>
 
 		<div class="o-layout">
-			<header><h1 class="c-heading--lg u-mb--lg o-col-12@xs">{{ title }}</h1></header>
+			<header><h1 class="c-heading--lg u-mb--lg o-col-12@xs">{{ title }} <span class="u-regular">/ {{ entry.projectDate|date('jj.m.Y') }}</span></h1></header>
 		</div>
 
 		<div class="o-layout">
@@ -91,46 +97,66 @@
             </div>
 		</div>
 
-		<div class="o-layout u-mb--xs">
+		{% set credits = entry.credits %}
+        {% if credits | length %}
+        <div class="o-layout u-mb--xs">
 			<div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
 				<small>
 					<dl class="o-list--inline">
-						{% set credits = entry.credits %}
-
 						{% for row in credits %}
 							{% if row.link | length %}
 								<dt>{{ row.function }}</dt>
-								<dd><strong><a class="u-underline" href="{{ row.link }}" target="_blank">{{ row.name }}</a></strong></dd>
+								<dd><strong><a class="u-underline" href="{{ row.link }}" target="_blank">{{ row.name|raw }}</a></strong></dd>
 							{% else %}
 								<dt>{{ row.function }}</dt>
-								<dd><strong>{{ row.name }}</strong></dd>
+								<dd><strong>{{ row.name|raw }}</strong></dd>
 							{% endif %}
 		                {% endfor %}
 					</dl>
 				</small>
 			</div>
 		</div>
+        {% endif %}
 
-		<div class="o-layout u-mb--lg">
-			<div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
-				<small>Supports</small>
-			</div>
-			<div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
-				<small>
-					<ul class="o-list--inline">
-						{% set supports = entry.supports %}
+        {% set supports = entry.supports.all() %}
+        {% if supports | length %}
+        <div class="o-layout u-mb--lg">
+            <div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+                <small>Soutiens</small>
+            </div>
+            <div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+                <small>
+                    <ul class="o-list--inline">
+                        {% for entry in supports %}
+                                <li><strong><a class="u-underline" href="{{ entry.link }}" target="_blank">{{ entry.title }}</a></strong></li>
+                        {% endfor %}
+                    </ul>
+                </small>
+            </div>
+        </div>
+        {% endif %}
 
-						{% for row in supports %}
-							{% if row.link | length %}
-								<li><strong><a class="u-underline" href="{{ row.link }}" target="_blank">{{ row.name }}</a></strong></li>
-							{% else %}
-								<li><strong>{{ row.name }}</strong></li>
-							{% endif %}
-		                {% endfor %}
-					</ul>
-				</small>
-			</div>
-		</div>
+        {% set technical = entry.technicalFile.one() %}
+        {% set press = entry.pressFile.one() %}
+
+        {% if technical is not empty or press is not empty %}
+
+        <div class="o-layout u-mb--lg">
+            <div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
+                <small>
+                    {% if technical is not empty %}
+                        <a class="u-underline" href="{{ technical.getUrl() }}">Télécharger la fiche technique</a>
+                    {% endif %}
+
+                    {% if press is not empty %}
+                        <a class="u-underline" href="{{ technical.getUrl() }}">Télécharger le dossier de presse</a>
+                    {% endif %}
+                </small>
+            </div>
+        </div>
+
+        {% endif %}
+
 
 		<div class="o-layout">
             <div class="c-gallery u-clearfix">

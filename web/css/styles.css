@@ -1597,19 +1597,19 @@ dl dd {
   .o-list--inline li, .o-list--inline ol {
     display: inline-block; }
   .o-list--inline dt, .o-list--inline dd {
-    display: inline-block; }
+    display: inline; }
 
 /*------------------------------------*\
     BASE: MAIN
 \*------------------------------------*/
 main {
-  min-height: calc( 100vh - 90px - 115px); }
+  min-height: calc( 100vh - 124px - 62px); }
   @media screen and (min-width: 576px) {
     main {
-      min-height: calc( 100vh - 114px - 85px); } }
+      min-height: calc( 100vh - 104px - 38px); } }
   @media screen and (min-width: 768px) {
     main {
-      min-height: calc( 100vh - 114px - 55px); } }
+      min-height: calc( 100vh - 104px - 38px); } }
 
 /*------------------------------------*\
     BASE: STATES
@@ -3272,7 +3272,7 @@ main {
           align-items: center;
   padding: 0 20px;
   position: relative;
-  height: 100px; }
+  height: 74px; }
   @media screen and (min-width: 576px) {
     .l-navbar {
       padding: 0 10px; } }
@@ -4973,7 +4973,7 @@ body:not(.u-is-mobile) .c-list-card:hover, body:not(.u-is-mobile) .c-list-card:a
     margin: 0; }
 
 .c-nav__logo {
-  height: 100px; }
+  height: 74px; }
 
 .c-nav__links {
   display: -webkit-inline-box;
@@ -5222,6 +5222,15 @@ blockquote {
       line-height: 27px; } }
 
 /*------------------------------------*\
+    BASE: SOCIALs
+\*------------------------------------*/
+.c-social__icon {
+  height: 44px;
+  margin-right: 20px; }
+  .c-social__icon .u-link-block {
+    height: 100%; }
+
+/*------------------------------------*\
     COMPONENTS: SUGGESTIONS
 \*------------------------------------*/
 .c-suggestion {
@@ -5460,6 +5469,12 @@ body:not(.u-is-mobile) .u-link-sub:hover, body:not(.u-is-mobile) .u-link-sub:act
 
 .u-underline {
   text-decoration: underline !important; }
+
+.u-light {
+  font-weight: 300; }
+
+.u-regular {
+  font-weight: 400; }
 
 .u-small {
   color: #1b1b1b;

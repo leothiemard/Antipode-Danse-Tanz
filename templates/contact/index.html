@@ -27,13 +27,96 @@
                 </div>
         		<div class="o-col-12@xs o-col-4@sm">
         			<address class="u-mt">
-                        {{ entry.studioAddress|nl2br }}
+                        {{ entry.studioAddress|nl2br }}<br>
+                        <a class="u-underline" href="{{ entry.globalLink }}" target="_blank">{{ entry.globalLink|trim('https://' ) }}</a>
 					</address>
 					<hr class="u-separator">
-					<address>
+					<address class="u-mb--xxl">
                         {{ entry.postalBox|nl2br }}
 						<a class="u-underline" href="{{ entry.studioEmail }}">{{ entry.studioEmail }}</a><br>
 					</address>
+                    <ul class="o-list--inline">
+                        <li class="c-social__icon">
+                            <a class="u-link-block" href="{{ entry.instagramLink }}" target="_blank">
+                                <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <rect id="path-1" x="0" y="0" width="44" height="44"></rect>
+                                    </defs>
+                                    <g id="social" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Instagram">
+                                            <g id="icon">
+                                                <g id="Rectangle">
+                                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                                    <rect stroke="#333333" stroke-width="4" x="2" y="2" width="40" height="40"></rect>
+                                                </g>
+                                                <path d="M27.1729,21.8076 C27.1729,18.9976 24.8969,16.7136 22.0799,16.7136 C19.2699,16.7136 16.9849,18.9976 16.9849,21.8076 C16.9849,24.6226 19.2699,26.9006 22.0799,26.9006 C24.8969,26.9006 27.1729,24.6226 27.1729,21.8076 M27.8969,15.2716 C27.4439,15.2716 27.0779,15.6386 27.0779,16.0916 C27.0779,16.5446 27.4439,16.9116 27.8969,16.9116 C28.3509,16.9116 28.7179,16.5446 28.7179,16.0916 C28.7179,15.6386 28.3509,15.2716 27.8969,15.2716 M16.8429,13.4136 L27.0479,13.4136 C28.9399,13.4136 30.4789,14.9516 30.4789,16.8436 L30.4789,27.0486 C30.4789,28.9396 28.9399,30.4786 27.0479,30.4786 L16.8429,30.4786 C14.9509,30.4786 13.4129,28.9396 13.4129,27.0486 L13.4129,16.8436 C13.4129,14.9516 14.9509,13.4136 16.8429,13.4136 M27.7179,10.9996 L16.1739,10.9996 C13.3339,10.9996 10.9999,13.3206 10.9999,16.1746 L10.9999,27.7176 C10.9999,30.5586 13.3339,32.8906 16.1739,32.8906 L27.7179,32.8906 C30.5689,32.8906 32.8919,30.5586 32.8919,27.7176 L32.8919,16.1746 C32.8919,13.3206 30.5689,10.9996 27.7179,10.9996 M18.9079,21.8076 C18.9079,20.0556 20.3289,18.6276 22.0799,18.6276 C23.8379,18.6276 25.2589,20.0556 25.2589,21.8076 C25.2589,23.5646 23.8379,24.9866 22.0799,24.9866 C20.3289,24.9866 18.9079,23.5646 18.9079,21.8076" id="Fill-1" fill="#333333"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="c-social__icon">
+                            <a class="u-link-block" href="{{ entry.facebookLink }}" target="_blank">
+                                <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <rect id="path-1" x="0" y="0" width="44" height="44"></rect>
+                                    </defs>
+                                    <g id="social" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Facebook">
+                                            <g id="icon">
+                                                <g id="Rectangle">
+                                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                                    <rect stroke="#333333" stroke-width="4" x="2" y="2" width="40" height="40"></rect>
+                                                </g>
+                                                <path d="M23.76863,17.56557 L23.76863,15.80557 C23.76863,14.96187 24.32743,14.75947 24.73113,14.75947 L27.19293,14.75947 L27.19293,10.99967 L23.80273,10.99967 C20.03303,10.99967 19.18933,13.78377 19.18933,15.59107 L19.18933,17.56557 L17.00033,17.56557 L17.00033,20.21877 L17.00033,21.95457 L19.21243,21.95457 L19.21243,32.92267 L23.60143,32.92267 L23.60143,21.95457 L26.84863,21.95457 L26.99163,20.22977 L27.25343,17.56557 L23.76863,17.56557 Z" id="Fill-1" fill="#333333"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="c-social__icon">
+                            <a class="u-link-block" href="{{ entry.vimeoLink }}" target="_blank">
+                                <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <rect id="path-1" x="0" y="0" width="44" height="44"></rect>
+                                    </defs>
+                                    <g id="social" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Vimeo">
+                                            <g id="icon">
+                                                <g id="Rectangle">
+                                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                                    <rect stroke="#333333" stroke-width="4" x="2" y="2" width="40" height="40"></rect>
+                                                </g>
+                                                <path d="M32.166464,16.451832 C30.972304,23.143352 24.337104,28.823752 22.324544,30.123512 C20.346304,31.410952 18.507984,29.583192 17.852384,28.213912 C17.092944,26.662472 14.840144,18.188952 14.230304,17.475272 C13.655664,16.773912 11.862224,18.188952 11.862224,18.188952 L10.999824,17.050232 C10.999824,17.050232 14.609584,12.727672 17.380704,12.186472 C20.289984,11.623272 20.289984,16.658632 20.979024,19.486952 C21.669824,22.200872 22.117744,23.740872 22.715264,23.740872 C23.302224,23.740872 24.440064,22.235192 25.682624,19.913752 C26.924304,17.590552 25.636864,15.532232 23.199264,17.003592 C24.176064,11.163032 33.351824,9.760312 32.166464,16.451832" id="Fill-1" fill="#333333"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="c-social__icon">
+                            <a class="u-link-block" href="{{ entry.youtubeLink }}" target="_blank">
+                                <svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <defs>
+                                        <rect id="path-1" x="0" y="0" width="44" height="44"></rect>
+                                    </defs>
+                                    <g id="social" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Youtube">
+                                            <g id="icon">
+                                                <g id="Rectangle">
+                                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                                    <rect stroke="#333333" stroke-width="4" x="2" y="2" width="40" height="40"></rect>
+                                                </g>
+                                                <path d="M25.6800714,21.8843504 L19.7283806,25.1172236 L19.7283806,20.141494 L19.7283806,18.6263863 L22.4236846,20.1048226 L25.6800714,21.8843504 Z M32.7864821,17.5098387 C32.7864821,17.5098387 32.560517,15.9117378 31.9027288,15.2140163 C31.0687644,14.3010915 30.1266049,14.288546 29.7101014,14.2277487 C26.6337207,14 22.0186708,14 22.0186708,14 L21.9937764,14 C21.9937764,14 17.3921313,14 14.3138356,14.2277487 C13.8743526,14.288546 12.9436828,14.3010915 12.1097184,15.2140163 C11.4538451,15.9117378 11.2269226,17.5098387 11.2269226,17.5098387 C11.2269226,17.5098387 11,19.3839401 11,21.2339156 L11,21.4751748 L11,23.0008979 C11,24.8769294 11.2269226,26.72787 11.2269226,26.72787 C11.2269226,26.72787 11.4538451,28.3259708 12.1097184,29.0343078 C12.9436828,29.9588131 14.040954,29.9250368 14.5417156,30.0205754 C16.2948601,30.2010373 22.0186708,30.2608696 22.0186708,30.2608696 C22.0186708,30.2608696 26.6337207,30.2367436 29.7101014,30.0205754 C30.1266049,29.9588131 31.0687644,29.9588131 31.9027288,29.0343078 C32.560517,28.3259708 32.7864821,26.72787 32.7864821,26.72787 C32.7864821,26.72787 33,24.8769294 33,23.0008979 L33,21.5726435 L33,21.2339156 C33,19.3839401 32.7864821,17.5098387 32.7864821,17.5098387 Z" id="Fill-1" fill="#333333"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
         		</div>
         	</div>
         	<hr class="u-separator">
@@ -42,7 +125,7 @@
                 {% set people = entry.teamMember.all() %}
 
                 {% for entry in people %}
-                    <div class="o-col-12@xs o-col-4@sm">
+                    <div class="o-col-12@xs o-col-4@sm u-mb--sm">
                         <h2 class="c-category">{{ entry.function }}</h2>
                         <h1 class="c-heading--sm">{{ entry.title }}</h1>
                         <a class="u-underline" href="{{ entry.email }}">{{ entry.email }}</a>
@@ -61,7 +144,7 @@
                     <ul class="o-list u-mb--sm">
                     {% for entry in association %}
                         <li class="o-list__item">{{ entry.function }}</li>
-                        <li class="o-list__item"><a class="u-underline" mailto="{{ entry.email }}">{{ entry.title }}</a></li>
+                        <li class="o-list__item u-mb--xs"><a class="u-underline" mailto="{{ entry.email }}">{{ entry.title }}</a></li>
                     {% endfor %}
                     </ul>
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1963e3e1dd6c90ce46a20ab3ecde9cb4",
+    "content-hash": "daecacea8bac31555a73c0269d6e2674",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -238,19 +238,15 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/7e111c50db92fa2ced140f5ba23b4e261bc77a30",
-                "reference": "7e111c50db92fa2ced140f5ba23b4e261bc77a30",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/cb17687e9f936acd7e7245ad3890f953770dec1b",
+                "reference": "cb17687e9f936acd7e7245ad3890f953770dec1b",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
-                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
             },
             "type": "library",
             "extra": {
@@ -263,7 +259,6 @@
                     "Composer\\Spdx\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -290,15 +285,15 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2018-01-31T13:17:27+00:00"
+            "time": "2018-04-30T10:33:04+00:00"
         },
         {
             "name": "craftcms/cms",
-            "version": "3.0.5",
+            "version": "3.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/610f7ac8016a5adcb8606b831afdd6322da57dea",
-                "reference": "610f7ac8016a5adcb8606b831afdd6322da57dea",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/4b041728306579aec5badab7df7d4bf42440305b",
+                "reference": "4b041728306579aec5badab7df7d4bf42440305b",
                 "shasum": ""
             },
             "require": {
@@ -368,7 +363,7 @@
                 "docs": "https://github.com/craftcms/docs",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2018-05-01T17:07:42+00:00"
+            "time": "2018-05-10T18:26:07+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -948,6 +943,50 @@
             "time": "2018-02-23T01:58:20+00:00"
         },
         {
+            "name": "firstborn/migrationmanager",
+            "version": "3.0.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Firstborn/Craft-Migration-Manager/zipball/2d71a25fec9de0bd84e89df726d8ab50981018de",
+                "reference": "2d71a25fec9de0bd84e89df726d8ab50981018de",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Migration Manager",
+                "handle": "migrationmanager",
+                "developer": "FirstBorn",
+                "developerUrl": "https://firstborn.com",
+                "class": "firstborn\\migrationmanager\\MigrationManager",
+                "hasCpSettings": false,
+                "hasCpSection": true,
+                "changelogUrl": "https://raw.githubusercontent.com/Firstborn/Craft-Migration-Manager/master/CHANGELOG.md"
+            },
+            "autoload": {
+                "psr-4": {
+                    "firstborn\\migrationmanager\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Derrick Grigg",
+                    "email": "derrick.grigg@firstborn.com"
+                }
+            ],
+            "description": "Quickly create migrations for settings and content at the click of a mouse.",
+            "support": {
+                "docs": "https://github.com/Firstborn/Craft-Migration-Manager/blob/master/README.md",
+                "issues": "https://github.com/Firstborn/Craft-Migration-Manager/issues"
+            },
+            "time": "2018-05-10T18:08:27+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",
             "dist": {
@@ -1176,11 +1215,11 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.44",
+            "version": "1.0.45",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/168dbe519737221dc87d17385cde33073881fd02",
-                "reference": "168dbe519737221dc87d17385cde33073881fd02",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
+                "reference": "a99f94e63b512d75f851b181afcdf0ee9ebef7e6",
                 "shasum": ""
             },
             "require": {
@@ -1188,11 +1227,6 @@
             },
             "conflict": {
                 "league/flysystem-sftp": "<1.0.6"
-            },
-            "require-dev": {
-                "ext-fileinfo": "*",
-                "phpspec/phpspec": "^3.4",
-                "phpunit/phpunit": "^5.7"
             },
             "suggest": {
                 "ext-fileinfo": "Required for MimeType",
@@ -1221,7 +1255,6 @@
                     "League\\Flysystem\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -1251,7 +1284,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2018-04-06T09:58:14+00:00"
+            "time": "2018-05-07T08:44:23+00:00"
         },
         {
             "name": "league/oauth2-client",
@@ -2195,6 +2228,63 @@
                 "templating"
             ],
             "time": "2018-04-02T09:24:19+00:00"
+        },
+        {
+            "name": "verbb/cp-nav",
+            "version": "2.0.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/cp-nav/zipball/10fa8ef8c378cb4b270d090f0ad49c740c0d6c18",
+                "reference": "10fa8ef8c378cb4b270d090f0ad49c740c0d6c18",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0-RC1"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Control Panel Nav",
+                "handle": "cp-nav",
+                "description": "Control Panel Nav helps you managing your Control Panel navigation.",
+                "schemaVersion": "2.0.0",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "documentationUrl": "https://github.com/verbb/cp-nav",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/cp-nav/craft-3/CHANGELOG.md",
+                "class": "verbb\\cpnav\\CpNav"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\cpnav\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "http://verbb.io"
+                }
+            ],
+            "description": "Control Panel Nav is a Craft CMS plugin to help manage your Control Panel navigation.",
+            "keywords": [
+                "cms",
+                "control panel nav",
+                "control panel navigation",
+                "cp nav",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/cp-nav/issues?state=open",
+                "source": "https://github.com/verbb/cp-nav",
+                "docs": "https://github.com/verbb/cp-nav",
+                "rss": "https://github.com/verbb/cp-nav/commits/v2.atom"
+            },
+            "time": "2018-05-09T13:57:15+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

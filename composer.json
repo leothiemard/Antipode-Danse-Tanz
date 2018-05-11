@@ -19,10 +19,12 @@
     "rss": "https://craftcms.com/changelog.rss"
   },
   "require": {
-    "craftcms/cms": "3.0.5",
+    "craftcms/cms": "3.0.7",
     "vlucas/phpdotenv": "^2.4.0",
     "dolphiq/craft3-locationpicker": "^1.0",
-    "mikestecker/craft-videoembedder": "1.0.9"
+    "mikestecker/craft-videoembedder": "1.0.9",
+    "verbb/cp-nav": "2.0.6",
+    "firstborn/migrationmanager": "v3.0.8"
   },
   "autoload": {
     "psr-4": {

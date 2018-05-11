@@ -11,7 +11,7 @@
 
 {% set title = "Agenda" %}
 
-{% set entries = craft.entries().section('agenda').all() %}
+{% set entries = craft.entries().section('agenda').limit(null) %}
 
 {% block main %}
 
@@ -28,20 +28,48 @@
             <div class="l-feed">
                 <div class="o-layout">
                     <div class="o-col-12@xs">
-                            <ul class="l-feed--list o-list">
-                            {% for entry in entries %}
-                                <div class="o-layout">
-                                    <div class="o-col-12@xs">
-                                        <li class="l-feed--list__item">
-                                            {% include "agenda/_components/list-item"  %}
-                                        </li>
-                                    </div>
+                        <ul class="l-feed--list o-list">
+                            <div class="o-layout">
+                                <div class="o-col-12@xs">
+                                    <li class="l-feed--list__item u-mb--sm"><h2>Prochains évènements<h2></li>
                                 </div>
-                            {% endfor %}
-                            </ul>
-                        </div>
+                            </div>
+                        {% for entry in entries.orderBy('eventDate ASC').limit(null) if entry.eventDate > now %}
+                            <div class="o-layout">
+                                <div class="o-col-12@xs">
+                                    <li class="l-feed--list__item">
+                                        {% include "agenda/_components/list-item"  %}
+                                    </li>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </ul>
                     </div>
                 </div>
+            </div>
+
+            <div class="l-feed">
+                <div class="o-layout">
+                    <div class="o-col-12@xs">
+                        <ul class="l-feed--list o-list">
+                            <div class="o-layout">
+                                <div class="o-col-12@xs">
+                                    <li class="l-feed--list__item u-mb--sm"><h2>Archives<h2></li>
+                                </div>
+                            </div>
+                        {% for entry in entries.orderBy('eventDate DESC').limit(null) if entry.eventDate < now %}
+                            <div class="o-layout">
+                                <div class="o-col-12@xs">
+                                    <li class="l-feed--list__item">
+                                        {% include "agenda/_components/list-item"  %}
+                                    </li>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

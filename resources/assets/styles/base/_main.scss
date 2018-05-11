@@ -3,13 +3,13 @@
 \*------------------------------------*/
 
 main {
-  min-height: calc( 100vh - #{$nav-height} - #{$footer-height} );
+	min-height: calc( 100vh - 124px - 62px );
 
-  @include media-query( sm ) {
-    min-height: calc( 100vh - #{$nav-height--md} - #{$footer-height--sm} );
-  }
+	@include media-query( sm ) {
+		min-height: calc( 100vh - 104px - 38px );
+	}
 
-  @include media-query( md ) {
-    min-height: calc( 100vh - #{$nav-height--md} - #{$footer-height--md} );
-  }
+	@include media-query( md ) {
+    	min-height: calc( 100vh - 104px - 38px );
+	}
 }
