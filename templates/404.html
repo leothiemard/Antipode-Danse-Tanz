@@ -17,8 +17,22 @@
  #}
 
 {% extends "_layouts/site" %}
-{% set title = "404" %}
+
+{% set title = "Aucun page trouvé" %}
 
 {% block main %}
-	<h1>Page not found</h1>
+	<section class="l-section">
+        <div class="o-wrapper">
+            <header>
+                <div class="o-layout">
+                    <header>
+                        <h1 class="c-heading u-mt--lg u-mb--sm o-col-5@xs">{{ title }}</h1>
+                    </header>
+                </div>
+                <div class="o-layout">
+                	<p class="o-col-12@xs">Retourner à la <a class="u-underline" href="{{ siteUrl }}">page d'accueil</p>
+                </div>
+            </header>
+        </div>
+    </section>
 {% endblock %}

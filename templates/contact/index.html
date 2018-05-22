@@ -28,12 +28,12 @@
         		<div class="o-col-12@xs o-col-4@sm">
         			<address class="u-mt">
                         {{ entry.studioAddress|nl2br }}<br>
-                        <a class="u-underline" href="{{ entry.globalLink }}" target="_blank">{{ entry.globalLink|trim('https://' ) }}</a>
+                        <a class="u-underline" href="{{ entry.globalLink }}" target="_blank">{{ entry.globalLink|trim('https://', 'left' ) }}</a>
 					</address>
 					<hr class="u-separator">
-					<address class="u-mb--xxl">
+					<address class="u-mb--lg">
                         {{ entry.postalBox|nl2br }}
-						<a class="u-underline" href="{{ entry.studioEmail }}">{{ entry.studioEmail }}</a><br>
+						<a class="u-underline" href="mailto:{{ entry.studioEmail }}">{{ entry.studioEmail }}</a><br>
 					</address>
                     <ul class="o-list--inline">
                         <li class="c-social__icon">
@@ -128,7 +128,7 @@
                     <div class="o-col-12@xs o-col-4@sm u-mb--sm">
                         <h2 class="c-category">{{ entry.function }}</h2>
                         <h1 class="c-heading--sm">{{ entry.title }}</h1>
-                        <a class="u-underline" href="{{ entry.email }}">{{ entry.email }}</a>
+                        <a class="u-underline" href="mailto:{{ entry.email }}">{{ entry.email }}</a>
                     </div>
                 {% endfor %}
 
@@ -144,7 +144,7 @@
                     <ul class="o-list u-mb--sm">
                     {% for entry in association %}
                         <li class="o-list__item">{{ entry.function }}</li>
-                        <li class="o-list__item u-mb--xs"><a class="u-underline" mailto="{{ entry.email }}">{{ entry.title }}</a></li>
+                        <li class="o-list__item u-mb--xs"><a class="u-underline" href="mailto:{{ entry.email }}">{{ entry.title }}</a></li>
                     {% endfor %}
                     </ul>
 
@@ -156,7 +156,7 @@
                     {% set supporters = entry.mainSupporters.all() %}
     				<ul class="o-list u-mb--sm">
                         {% for entry in supporters %}
-                            <li class="o-list__item"><a class="u-underline" href="{{ entry.link }}" target="_blank">{{ entry.title }}</a></li>
+                            <li class="o-list__item"><a class="u-underline" href="{{ entry.globalLink }}" target="_blank">{{ entry.title }}</a></li>
                         {% endfor %}
 					</ul>
         		</div>

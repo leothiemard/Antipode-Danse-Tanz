@@ -128,7 +128,7 @@
                 <small>
                     <ul class="o-list--inline">
                         {% for entry in supports %}
-                                <li><strong><a class="u-underline" href="{{ entry.link }}" target="_blank">{{ entry.title }}</a></strong></li>
+                                <li class="u-display-inline"><strong><a class="u-underline" href="{{ entry.globalLink }}" target="_blank">{{ entry.title|raw }}</a></strong></li>
                         {% endfor %}
                     </ul>
                 </small>
@@ -136,20 +136,19 @@
         </div>
         {% endif %}
 
-        {% set technical = entry.technicalFile.one() %}
-        {% set press = entry.pressFile.one() %}
-
-        {% if technical is not empty or press is not empty %}
+        {% if entry.technicalFile is not empty or entry.pressFile is not empty %}
 
         <div class="o-layout u-mb--lg">
             <div class="o-col-12@xs o-col-9@sm o-col--offset-1@sm">
                 <small>
-                    {% if technical is not empty %}
-                        <a class="u-underline" href="{{ technical.getUrl() }}">Télécharger la fiche technique</a>
+                    {% if entry.technicalFile is not empty %}
+                        {% set technical = entry.technicalFile.one() %}
+                        <a class="u-underline" href="{{ technical.getUrl() }}" target="_blank">Télécharger la fiche technique</a>
                     {% endif %}
 
-                    {% if press is not empty %}
-                        <a class="u-underline" href="{{ technical.getUrl() }}">Télécharger le dossier de presse</a>
+                    {% if entry.pressFile is not empty %}
+                        {% set press = entry.pressFile.one() %}
+                        <a class="u-underline" href="{{ press.getUrl() }}" target="_blank">Télécharger le dossier de presse</a>
                     {% endif %}
                 </small>
             </div>
